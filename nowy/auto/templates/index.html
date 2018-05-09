@@ -1,0 +1,26 @@
+<html>
+<head>
+    <style>
+        img{height: 100px;}
+        #block{width: 300px; margin: 0 auto;}
+        div{text-align: center;}
+    </style>
+
+</head>
+<body>
+
+
+<div id="block">
+{% for car in car_list %}
+
+
+<div>
+    <h1>{{car.model}} {{car.marka}} {{car.koszt}}</h1>
+<img src="{{car.img}}"/>
+<span><a href="{% url 'details' car.id %}">Zobacz szczegóły</a></span>
+</div>
+
+{% endfor %}
+</div>
+</body>
+</html>
