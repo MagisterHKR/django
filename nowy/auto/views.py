@@ -9,4 +9,5 @@ def index(request):
 # Widok Szczegółów wybranego Auta
 def details(request,auto_id):
     auto_id = Auto.objects.get(pk=auto_id)
+
     return render(request, 'details.html',{'car': auto_id})

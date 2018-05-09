@@ -8,4 +8,5 @@ urlpatterns = [
     # ex /auto/2
     path('<int:auto_id>/', views.details, name='details'),
 
+
 ]
