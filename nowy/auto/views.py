@@ -17,13 +17,12 @@ def details(request,auto_id):
 
     return render(request, 'details.html',{'car': auto_id})
 
-def post_new(request):
+def add_car(request):
     if request.method == "POST":
-        form = PostForm(request.POST)
+        form = AddCar(request.POST)
         if form.is_valid():
-            post = form.save(commit=False)
-            post.save()
-            return HttpResponse("Test")
+            form.save()
+            return HttpResponse("Dodano Auto")
     else:
-        form = PostForm()
+        form = AddCar()
     return render(request, 'add.html', {'form': form})

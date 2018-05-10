@@ -33,7 +33,15 @@ body
 }
 .car
 {
+        padding: 10px;
+        border-radius: 30px;
+        margin-top: 40px;
 	    width: 250px;
+}
+.checked
+{
+    background: #fc000066;
+
 }
     </style>
 
@@ -43,7 +51,11 @@ body
 
 <div id="block">
 {% for car in car_list %}
+{% if car.checked == True %}
+<div class="car checked">
+{% else %}
 <div class="car">
+{% endif %}
     <h1>{{car.model}}<br> {{car.mark}}</h1>
 <img src="{{car.photo}}"/>
 <a href="{% url 'details' car.id %}">Zobacz szczegóły</a>

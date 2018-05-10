@@ -7,7 +7,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     # ex /auto/2
     path('<int:auto_id>/', views.details, name='details'),
-path('dodaj/', views.post_new, name='post_new'),
+path('dodaj/', views.add_car, name='add_car'),
 
 
 ]
