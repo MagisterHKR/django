@@ -8,18 +8,10 @@ from django.utils import timezone
 class LenderManager(models.Manager):
     def create(self,pesel,name,sur_name,tel):
         lender = self.create(pesel=pesel,name=name,sur_name=sur_name,tel=tel)
-
         return lender
 
-
-
-
-
-
-
-
 # Samochód
-class Auto(models.Model):
+class Auto (models.Model):
     model = models.CharField('Model',max_length=20)
     mark = models.CharField('Marka',max_length=20)
     gearbox = models.CharField('Skrzynia biegów',max_length=20)
@@ -34,9 +26,9 @@ class Auto(models.Model):
         verbose_name = "Samochód"
         verbose_name_plural = "Samochody"
 
-
     def __str__(self):
         return self.model
+
 # wypożyczający
 class Lender(models.Model):
 
@@ -57,15 +49,13 @@ class Lender(models.Model):
 # wypożyczenia
 class Hire(models.Model):
     lender = models.ForeignKey(Lender,on_delete=models.CASCADE)
-    car = models.ForeignKey(Auto,on_delete=models.CASCADE)
+    car = models.ForeignKey(Car,on_delete=models.CASCADE)
     title = models.CharField('Tytuł',max_length=30)
     Comments = models.CharField('Uwagi',max_length=30)
     data = models.DateTimeField(auto_now=True)
     class Meta:
         verbose_name = "Wypożyczenie"
         verbose_name_plural = "Wypożyczenia"
-
-
 
     def __str__(self):
         return self.title
@@ -75,5 +65,5 @@ class Hire(models.Model):
 # formularz dodawania samochodu
 class AddCar(forms.ModelForm):
     class Meta:
-        model = Auto
+        model = Car
         fields = ('model','mark','gearbox','fuel','type','charge','photo')
