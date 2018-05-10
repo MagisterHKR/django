@@ -5,20 +5,47 @@
         img{height: 100px;}
         #block{width: 300px; margin: 0 auto;}
         div{text-align: center;}
-        a{display:block;text-decoration:none;padding: 10px; background-color: palegreen; coursor:pointer;}
+a{
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    background-color: #5b3a92cc;
+    border-radius: 30px;
+    width: 50%;
+    color: white;
+    margin: 0 auto;
+}
+body
+{
+	margin: 0 !important;
+	padding: 0 !important;
+}
+#block
+{
+	width: 800px;
+	display: flex;
+
+}
+#nav {
+	width: 100%;
+	background: #8f0eb7;
+	height: 50px;
+}
+.car
+{
+	    width: 250px;
+}
     </style>
 
 </head>
 <body>
-
+<section id="nav"></section>
 
 <div id="block">
 {% for car in car_list %}
-
-
-<div>
-    <h1>{{car.model}} {{car.marka}} {{car.koszt}}</h1>
-<img src="{{car.img}}"/>
+<div class="car">
+    <h1>{{car.model}}<br> {{car.mark}}</h1>
+<img src="{{car.photo}}"/>
 <a href="{% url 'details' car.id %}">Zobacz szczegóły</a>
 </div>
 
