@@ -1,16 +1,7 @@
 from django.db import models
 from django import forms
-from django.utils import timezone
 
-# Create your models here.
-
-# dodawanie klienta
-class LenderManager(models.Manager):
-    def create(self,pesel,name,sur_name,tel):
-        lender = self.create(pesel=pesel,name=name,sur_name=sur_name,tel=tel)
-        return lender
-
-# Samochód
+# Model Samochodu
 class Car (models.Model):
     model = models.CharField('Model',max_length=20)
     mark = models.CharField('Marka',max_length=20)
@@ -31,8 +22,8 @@ class Car (models.Model):
 
 
 
-
-
-
-
-# formularz dodawania samochodu
+#Dodawanie auta
+class AddCar(forms.ModelForm):
+        class Meta:
+            model = Car
+            fields = ('model', 'mark', 'gearbox', 'fuel', 'type', 'charge', 'photo')
