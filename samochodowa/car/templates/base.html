@@ -17,9 +17,14 @@
 	</div>
 	<div class="col text-right">
 		<div class="btn-group" role="group">
+            {% if request.user.is_authenticated %}
   <button type="button" class="btn btn-secondary">Wypożyczenia</button>
   <button type="button" class="btn btn-secondary">Profil</button>
   <button type="button" class="btn btn-secondary">Wyloguj</button>
+            {% else %}
+   <button type="button" class="btn btn-secondary">Zaloguj</button>
+   <button type="button" class="btn btn-secondary">Zarejestruj</button>
+            {% endif %}
 </div>
 </div>
   </div>

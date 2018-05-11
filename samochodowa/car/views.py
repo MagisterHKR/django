@@ -30,13 +30,3 @@ def add_car(request):
     else:
         form = AddCar()
     return render(request, 'add.html', {'form': form})
-def add_ca(request):
-
-    if request.method == "POST":
-        form = Car.objects.create(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponse("Dodano Samochód")
-    else:
-        form = CarManager()
-    return render(request, 'szablon_form.html', {'form': form})
