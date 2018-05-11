@@ -1,0 +1,73 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <style>
+        img{height: 100px; float: left;}
+        #block{width: 300px; margin: 0 auto;}
+        div{text-align: center;}
+a{
+
+    text-decoration: none;
+    padding: 10px;
+    background-color: #5b3a92cc;
+    border-radius: 30px;
+    width: 50%;
+    color: white;
+    margin: 0 auto;
+}
+body
+{
+	margin: 0 !important;
+	padding: 0 !important;
+}
+#block
+{
+	width: 800px;
+
+
+}
+#nav {
+	width: 100%;
+	background: #8f0eb7;
+	height: 50px;
+}
+.car
+{
+    width: 250px;
+    margin:0 auto;
+    padding: 10px;
+    border-radius: 30px;
+    margin-top: 40px;
+}
+.checked
+{
+    background: #fc000066;
+
+}
+    </style>
+
+</head>
+<body>
+
+<section id="nav"></section>
+<div id="block">
+{% if car.checked == True %}
+<div class="car checked">
+{% else %}
+<div class="car">
+{% endif %}
+    <h1>{{car.model}}</h1>
+    <img src="{{car.photo}}"/>
+    Marka: {{car.mark}}<br>
+    Skrzynia: {{car.gearbox}}<br>
+    Paliwo: {{car.fuel}}<br>
+    Typ: {{car.type}}<br>
+    Cena: {{car.charge}}<br>
+
+<br>
+<a href="{% url 'index' %}">Główna</a>
+<a href="{% url 'index' %}">Wypożycz</a>
+        </div>
+</div>
+</body>
+</html>
