@@ -9,7 +9,7 @@ class Car (models.Model):
     fuel = models.CharField('Paliwo',max_length=20)
     type = models.CharField('Typ',max_length=20)
     charge = models.CharField('Koszt',max_length=20)
-    photo = models.URLField('Zdjęcie',default='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Car_with_Driver-Silhouette.svg/916px-Car_with_Driver-Silhouette.svg.png')
+    photo = models.URLField('Zdjęcie',default='http://demo.sc.chinaz.com/Files/pic/icons/1499/chinaz3.png')
     checked = models.BooleanField('Wypożyczony',default=False)
 
 

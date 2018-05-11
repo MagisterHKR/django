@@ -20,6 +20,7 @@ def details(request,car_id):
 # Widok dodania nowego auta
 #Views add car
 def add_car(request):
+
     if request.method == "POST":
         form = AddCar(request.POST)
         if form.is_valid():

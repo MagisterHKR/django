@@ -1,67 +1,25 @@
-<html>
-<head>
-    <meta charset="utf-8"/>
-    <style>
-        img{height: 100px;}
-        #block{width: 300px; margin: 0 auto;}
-        div{text-align: center;}
-a{
-    display: block;
-    text-decoration: none;
-    padding: 10px;
-    background-color: #5b3a92cc;
-    border-radius: 30px;
-    width: 50%;
-    color: white;
-    margin: 0 auto;
-}
-body
-{
-	margin: 0 !important;
-	padding: 0 !important;
-}
-#block
-{
-	width: 800px;
-	display: flex;
+{% extends 'base.html' %}
 
-}
-#nav {
-	width: 100%;
-	background: #8f0eb7;
-	height: 50px;
-}
-.car
-{
-        padding: 10px;
-        border-radius: 30px;
-        margin-top: 40px;
-	    width: 250px;
-}
-.checked
-{
-    background: #fc000066;
+{% block title_name %}<h1>Nasza oferta</h1>{% endblock %}
 
-}
-    </style>
 
-</head>
-<body>
-<section id="nav"></section>
+{% block main %}
+  <div class="row justify-content-md-center">
+    {% for car in car_list %}
+	    <div class="col-sm-4 text-center">
+            {% if car.checked == True %}
+            <div class="card border-danger">
+            {% else %}
+            <div class="card">
+            {% endif %}
+                <img class="card-img-top" height="250" src="{{car.photo}}" alt="Obrazek w karcie">
+                <div class="card-body">
+                <p class="card-text"><a href="{% url 'details' car.id %}" class="btn btn-outline-info">Szczegóły</a></p>
+            </div>
 
-<div id="block">
-{% for car in car_list %}
-{% if car.checked == True %}
-<div class="car checked">
-{% else %}
-<div class="car">
-{% endif %}
-    <h1>{{car.model}}<br> {{car.mark}}</h1>
-<img src="{{car.photo}}"/>
-<a href="{% url 'details' car.id %}">Zobacz szczegóły</a>
-</div>
 
-{% endfor %}
-</div>
-</body>
-</html>
+    </div>
+    </div>
+    {% endfor %}
+        </div>
+{% endblock %}

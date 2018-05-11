@@ -11,7 +11,6 @@ class ClientManager(models.Manager):
 
 # Model Klienta
 class Client(models.Model):
-
     name = models.CharField('Imię',max_length=20)
     sur_name = models.CharField('Nazwisko',max_length=50)
     tel = models.CharField('Telefon',max_length=9)
