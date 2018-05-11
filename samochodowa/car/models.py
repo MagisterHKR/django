@@ -3,6 +3,11 @@ from django import forms
 
 
 # Model Samochodu
+class CarManager(models.Manager):
+    def create(self,model,mark,gearbox,fuel,type,charge,photo,checked):
+        car = self.create(model=model,mark=mark,gearbox=gearbox,fuel=fuel,type=type,charge=charge,photo=photo)
+        return car
+
 
 
 
@@ -16,6 +21,7 @@ class Car(models.Model):
     photo = models.URLField('Zdjęcie',default='http://demo.sc.chinaz.com/Files/pic/icons/1499/chinaz3.png')
     checked = models.BooleanField('Wypożyczony',default=False)
 
+    objects=CarManager()
 
 
 
