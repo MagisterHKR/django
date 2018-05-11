@@ -1,8 +1,12 @@
 from django.db import models
 from django import forms
 
+
 # Model Samochodu
-class Car (models.Model):
+
+
+
+class Car(models.Model):
     model = models.CharField('Model',max_length=20)
     mark = models.CharField('Marka',max_length=20)
     gearbox = models.CharField('Skrzynia biegów',max_length=20)
@@ -11,6 +15,8 @@ class Car (models.Model):
     charge = models.CharField('Koszt',max_length=20)
     photo = models.URLField('Zdjęcie',default='http://demo.sc.chinaz.com/Files/pic/icons/1499/chinaz3.png')
     checked = models.BooleanField('Wypożyczony',default=False)
+
+
 
 
     class Meta:
