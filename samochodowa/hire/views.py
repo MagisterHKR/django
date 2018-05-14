@@ -10,7 +10,11 @@ def add_hire(request):
         form = AddHire(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponse("Dodano HIRE")
+            return HttpResponse("Dodano")
     else:
         form = AddHire()
     return render(request, 'add.html', {'form': form})
+
+
+def test(request):
+    if request.method == "POST":
