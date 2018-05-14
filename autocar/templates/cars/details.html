@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title_name %}<h1>Nasza oferta</h1>{% endblock %}
+
+{% block main %}
+
+ <div class="row justify-content-md-center">
+<div id="block">
+{% if car.checked == True %}
+<div class="car checked">
+{% else %}
+<div class="car">
+{% endif %}
+
+  <img class="card-img-top img-fluid" src="{{car.photo}}" alt="Brak zdjęcia">
+  <div class="card-body">
+    <h4 class="card-title">{{car.mark}}</h4>
+    <h6 class="card-subtitle text-muted">{{car.model}}</h6>
+    <p class="card-text">car.description</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Marka: {{car.mark}}</li>
+    <li class="list-group-item">Skrzynia: {{car.gearbox}}</li>
+    <li class="list-group-item">Paliwo: {{car.fuel}}</li>
+    <li class="list-group-item">Typ: {{car.type}}</li>
+    <li class="list-group-item">
+        <div class="input-group mb-3"><div class="input-group-prepend"> <span class="input-group-text">PLN</span></div> <span class="form-control">{{car.charge}}</span><div class="input-group-append"> <span class="input-group-text">,00</span></div></div>
+
+
+    </li>
+  </ul>
+  <div class="card-body">
+    <a href="{% url 'index' %}" class="btn btn-outline-info">Główna</a>
+    <a href="#" class="btn btn-success">Wypożycz</a>
+  </div>
+</div>
+{% endblock %}
+

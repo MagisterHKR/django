@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title_name %}<h1>Dodaj samochód</h1>{% endblock %}
+
+{% block main %}
+
+    <form method="POST" class="post-form">{% csrf_token %}
+
+
+    <label for="id_model">Model:</label>
+    <div class="form-control"><input type="text" id="id_model" maxlength="20" required="" name="model"></div>
+
+    <label for="id_mark">Marka:</label>
+    <input type="text" class="form-control" id="id_mark" maxlength="20" required="" name="mark">
+
+    <label for="id_qearbox">Skrzynia biegów</label>
+    <select class="form-control" id="id_qearbox" name="qearbox">
+      <option>Manualna</option>
+      <option>Automatyczna</option>
+      <option>Półautomatyczna</option>
+    </select>
+
+    <label for="id_fuel">Paliwo: </label>
+    <select class="form-control" name="fuel" id="id_fuel">
+      <option>Benzyna</option>
+      <option>Diesel</option>
+      <option>Benzyna + LPG</option>
+    </select>
+
+    <label for="id_type">Skrzynia biegów</label>
+    <select class="form-control" id="id_type" name="type">
+        <option>Hatchback</option>
+        <option>Sedan</option>
+        <option>Kombi</option>
+        <option>Sportowe | Coupe</option>
+        <option>Kabriolet</option>
+        <option>Limuzyna</option>
+        <option>Pickup</option>
+        <option>Terenowe</option>
+        <option>Van | Minibus</option>
+    </select>
+
+    <label for="id_charge">Cena wynajmu:</label>
+     <div class="input-group mb-3"><div class="input-group-prepend"> <span class="input-group-text">PLN</span></div> <input type="text" class="form-control" id="id_charge" name="charge" maxlength="20" required=""><div class="input-group-append"> <span class="input-group-text">,00</span></div></div>
+
+
+    <label for="id_photo">Zdjęcie:</label>
+    <input type="text" class="form-control" id="id_photo" maxlength="20" required="" name="photo" value="http://demo.sc.chinaz.com/Files/pic/icons/1499/chinaz3.png">
+
+
+
+        <button type="submit" class="save btn btn-default">Dodaj</button>
+    </form>
+
+{% endblock %}
+

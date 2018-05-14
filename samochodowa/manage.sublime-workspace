@@ -1,0 +1,518 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"flex",
+				"flex-wrap"
+			],
+			[
+				"re",
+				"relative"
+			],
+			[
+				"a",
+				"absolute"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"margin",
+				"margin"
+			],
+			[
+				"obraz",
+				"obraz_list"
+			],
+			[
+				"get",
+				"get_object_or_404"
+			],
+			[
+				"req",
+				"request"
+			],
+			[
+				"ani",
+				"animation-duration"
+			],
+			[
+				"spa",
+				"span\tTag"
+			],
+			[
+				"mo",
+				"model\tmodel"
+			],
+			[
+				"q_",
+				"q_reply"
+			],
+			[
+				"mode",
+				"models"
+			],
+			[
+				"q",
+				"q_text"
+			],
+			[
+				"date",
+				"datetime"
+			],
+			[
+				"question",
+				"question_text"
+			],
+			[
+				"ques",
+				"question_id"
+			],
+			[
+				"Htt",
+				"HttpResponseRedirect"
+			],
+			[
+				"que",
+				"question_id"
+			],
+			[
+				"pub",
+				"pub_date"
+			],
+			[
+				"mod",
+				"models"
+			],
+			[
+				"qu",
+				"question_text"
+			],
+			[
+				"ur",
+				"urls"
+			],
+			[
+				"l",
+				"lang\tAttr"
+			],
+			[
+				"back",
+				"background-size"
+			],
+			[
+				"con",
+				"justify-content"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"cour",
+				"cursor"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"fonst",
+				"font-style"
+			],
+			[
+				"i",
+				"italic"
+			],
+			[
+				"max",
+				"max-height"
+			],
+			[
+				"s",
+				"space-around"
+			],
+			[
+				"ma",
+				"margin"
+			],
+			[
+				"di",
+				"div\tTag"
+			],
+			[
+				"sli",
+				"slider-unit"
+			],
+			[
+				"galery",
+				"gallery"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"t",
+				"this"
+			],
+			[
+				"c",
+				"cursor"
+			],
+			[
+				"min-",
+				"min-width"
+			],
+			[
+				"al",
+				"alt\tAttr"
+			],
+			[
+				"li",
+				"link\tTag"
+			],
+			[
+				"gallery",
+				"gallery-img"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"f",
+				"font\tTag"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"dir",
+				"flex-direction"
+			],
+			[
+				"m",
+				"main\tTag"
+			],
+			[
+				"bord",
+				"border"
+			],
+			[
+				"col",
+				"color"
+			],
+			[
+				"fle",
+				"flex-direction"
+			],
+			[
+				"border-",
+				"border-color"
+			],
+			[
+				"min",
+				"min-height"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"lis",
+				"list-style-type"
+			],
+			[
+				"space",
+				"space-between"
+			],
+			[
+				"in",
+				"input\tTag"
+			],
+			[
+				"fo",
+				"footer\tTag"
+			],
+			[
+				"he",
+				"header\tTag"
+			],
+			[
+				"me",
+				"meta\tTag"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 104.0,
+		"last_filter": "syntax pyt",
+		"selected_items":
+		[
+			[
+				"syntax pyt",
+				"Set Syntax: Python (Django)"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Django pro",
+				"Django: Create New Project (relative to Open File)"
+			],
+			[
+				"syntax: py",
+				"Set Syntax: Python"
+			],
+			[
+				"Django:",
+				"Django: Run Server"
+			],
+			[
+				"Package Con",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"About"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 420.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Komputer/Desktop/index.html",
+		"/C/Users/Komputer/praktyki/samochodowa/car/models.py",
+		"/C/Users/Komputer/best/best/urls.py",
+		"/C/Users/Komputer/best/best/settings.py",
+		"/C/Users/Komputer/best/content/templates/index.html",
+		"/C/Users/Komputer/best/content/views.py",
+		"/C/Users/Komputer/best/content/templates/obrazek.html",
+		"/C/Users/Komputer/best/content/urls.py",
+		"/C/Users/Komputer/best/content/models.py",
+		"/C/Users/Komputer/best/content/admin.py",
+		"/C/Users/Komputer/quiz/quiz/urls.py",
+		"/C/Users/Komputer/turek/style.css",
+		"/C/Users/Komputer/turek/index.html",
+		"/C/Users/Komputer/AppData/Local/Programs/Python/Python37/Lib/site-packages/django/contrib/admin/templates/admin/index.html",
+		"/C/Users/Komputer/projekt/quiz/urls.py",
+		"/C/Users/Komputer/projekt/projekt/urls.py",
+		"/C/Users/Komputer/projekt/projekt/settings.py",
+		"/C/Users/Komputer/projekt/quiz/admin.py",
+		"/C/Users/Komputer/projekt/quiz/models.py",
+		"/C/Users/Komputer/ipsenum/polls/urls.py",
+		"/C/Users/Komputer/ipsenum/ipsenum/urls.py",
+		"/C/Users/Komputer/quiz/pyt/models.py",
+		"/C/Users/Komputer/Desktop/Nowy folder/index.html",
+		"/C/Users/Komputer/quiz/pyt/admin.py",
+		"/C/Users/Komputer/ipsenum/polls/models.py",
+		"/C/Users/Komputer/ipsenum/polls/admin.py",
+		"/C/Users/Komputer/ipsenum/Client/models.py",
+		"/C/Users/Komputer/ipsenum/polls/views.py",
+		"/C/Users/Komputer/ipsenum/Client/urls.py",
+		"/C/Users/Komputer/ipsenum/Client/templates/Client/index.html",
+		"/C/Users/Komputer/ipsenum/ipsenum/settings.py",
+		"/C/Users/Komputer/ipsenum/Client/views.py",
+		"/C/Users/Komputer/ipsenum/Client/admin.py",
+		"/C/Users/Komputer/ipsenum/user/urls.py",
+		"/C/Users/Komputer/ipsenum/user/models.py",
+		"/C/Users/Komputer/ipsenum/user/views.py",
+		"/C/Users/Komputer/ipsenum/user/templates/user/index.html",
+		"/C/Users/Komputer/ipsenum/user/migrations/0001_initial.py",
+		"/C/Users/Komputer/ipsenum/polls/templates/polls/results.html",
+		"/C/Users/Komputer/ipsenum/polls/tests.py",
+		"/C/Users/Komputer/ipsenum/manage.py",
+		"/C/Users/Komputer/ipsenum/templates/admin/base_site.html",
+		"/C/Users/Komputer/ipsenum/polls/templates/polls/detail.html",
+		"/C/Users/Komputer/ipsenum/polls/templates/polls/index.html",
+		"/C/Users/Komputer/ipsenum/polls/static/polls/style.css",
+		"/C/Users/Komputer/AppData/Roaming/Sublime Text 3/Packages/User/Package Control.sublime-settings",
+		"/C/Users/Komputer/blog/polls/urls.py",
+		"/C/Users/Komputer/blog/polls/models.py",
+		"/C/Users/Komputer/blog/blog/urls.py",
+		"/C/Users/Komputer/blog/polls/views.py",
+		"/C/Users/Komputer/blog/blog/settings.py",
+		"/C/Users/Komputer/Downloads/strona slowika/strona slowika/index.html",
+		"/C/Users/Komputer/Downloads/strona slowika/strona slowika/kontakt.html",
+		"/C/Users/Komputer/Downloads/strona slowika/strona slowika/o_mnie.html",
+		"/C/Users/Komputer/Downloads/strona slowika/strona slowika/uslugi.html",
+		"/C/Users/Komputer/Downloads/strona slowika/strona slowika/style.css",
+		"/C/Users/Komputer/Downloads/chyba-dziaua.au3",
+		"/E/Strony/Słowik/style.css",
+		"/E/Strony/Słowik/index.html",
+		"/E/Strony/Słowik/o_mnie.html",
+		"/E/Strony/Słowik/uslugi.html",
+		"/E/Strony/Słowik/kontakt.html",
+		"/E/Strony/Chrościński/css/fontello.css",
+		"/E/Strony/Chrościński/style.css",
+		"/E/Strony/Chrościński/gallery.html",
+		"/E/Strony/Chrościński/index.html",
+		"/E/index.html",
+		"/E/ZADANIE/sprawdz.html",
+		"/C/Users/Komputer/Desktop/Chrościński/style.css",
+		"/C/Users/Komputer/Desktop/Chrościński/index.html",
+		"/C/Users/Komputer/Desktop/Strona/index.html",
+		"/C/Users/Komputer/Desktop/Strona/6.html",
+		"/C/Users/Komputer/Desktop/Strona/5.html",
+		"/C/Users/Komputer/Desktop/Strona/4.html",
+		"/C/Users/Komputer/Desktop/Strona/3.html",
+		"/C/Users/Komputer/Desktop/Strona/2.html",
+		"/C/Users/Komputer/Desktop/Strona/tak.html",
+		"/C/Users/Komputer/Desktop/Strona/style.css"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 104.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "manage.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 164.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
