@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'car.apps.CarConfig',
     'hire.apps.HireConfig',
     'clients.apps.ClientsConfig',
+    'bootstrapform'
 ]
 
 MIDDLEWARE = [

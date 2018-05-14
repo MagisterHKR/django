@@ -1,73 +1,38 @@
-<html>
-<head>
-    <meta charset="utf-8"/>
-    <style>
-        img{height: 100px; float: left;}
-        #block{width: 300px; margin: 0 auto;}
-        div{text-align: center;}
-a{
+{% extends 'base.html' %}
 
-    text-decoration: none;
-    padding: 10px;
-    background-color: #5b3a92cc;
-    border-radius: 30px;
-    width: 50%;
-    color: white;
-    margin: 0 auto;
-}
-body
-{
-	margin: 0 !important;
-	padding: 0 !important;
-}
-#block
-{
-	width: 800px;
+{% block title_name %}<h1>Nasza oferta</h1>{% endblock %}
 
+{% block main %}
 
-}
-#nav {
-	width: 100%;
-	background: #8f0eb7;
-	height: 50px;
-}
-.car
-{
-    width: 250px;
-    margin:0 auto;
-    padding: 10px;
-    border-radius: 30px;
-    margin-top: 40px;
-}
-.checked
-{
-    background: #fc000066;
-
-}
-    </style>
-
-</head>
-<body>
-
-<section id="nav"></section>
+ <div class="row justify-content-md-center">
 <div id="block">
 {% if car.checked == True %}
 <div class="car checked">
 {% else %}
 <div class="car">
 {% endif %}
-    <h1>{{car.model}}</h1>
-    <img src="{{car.photo}}"/>
-    Marka: {{car.mark}}<br>
-    Skrzynia: {{car.gearbox}}<br>
-    Paliwo: {{car.fuel}}<br>
-    Typ: {{car.type}}<br>
-    Cena: {{car.charge}}<br>
 
-<br>
-<a href="{% url 'index' %}">Główna</a>
-<a href="{% url 'index' %}">Wypożycz</a>
-        </div>
+  <img class="card-img-top img-fluid" src="{{car.photo}}" alt="Brak zdjęcia">
+  <div class="card-body">
+    <h4 class="card-title">{{car.mark}}</h4>
+    <h6 class="card-subtitle text-muted">{{car.model}}</h6>
+    <p class="card-text">car.description</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Marka: {{car.mark}}</li>
+    <li class="list-group-item">Skrzynia: {{car.gearbox}}</li>
+    <li class="list-group-item">Paliwo: {{car.fuel}}</li>
+    <li class="list-group-item">Typ: {{car.type}}</li>
+    <li class="list-group-item">
+        <div class="input-group mb-3"><div class="input-group-prepend"> <span class="input-group-text">PLN</span></div> <span class="form-control">{{car.charge}}</span><div class="input-group-append"> <span class="input-group-text">,00</span></div></div>
+
+
+    </li>
+  </ul>
+  <div class="card-body">
+    <a href="{% url 'index' %}" class="btn btn-outline-info">Główna</a>
+    <a href="#" class="btn btn-success">Wypożycz</a>
+  </div>
 </div>
-</body>
-</html>
+{% endblock %}
+

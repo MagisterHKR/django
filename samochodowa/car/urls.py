@@ -9,5 +9,6 @@ urlpatterns = [
     path('<int:car_id>/', views.details, name='details'),
     # ex /car/add
     path('add/', views.add_car, name='add_car'),
+    path('ad/', views.add_ca, name='add_ca'),
 
 ]
