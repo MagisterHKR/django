@@ -13,7 +13,7 @@
 <section id='nav' class='container'>
 	<div class='row'>
 	<div class="col">
-		<a href="{% url 'index' %}"><h1>Wypożyczalnia</h1></a>
+		<a href="{% url 'car_index' %}"><h1>Wypożyczalnia</h1></a>
 	</div>
 	<div class="col text-right">
 		<div class="btn-group" role="group">
@@ -35,7 +35,7 @@
 <main id='container' class='container'>
 	<div class="row justify-content-md-center">
     <div class="col-md-auto">
-      {% block title_name %}<h1>TYtuł</h1> {% endblock%}
+      {% block title_name %}<h1>Title</h1> {% endblock%}
     </div>
   </div>
   	{% block main %}

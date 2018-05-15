@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title_name %}<h1>Lista Klientów</h1>{% endblock %}
+
+{% block main %}
+{% if request.user.is_authenticated %}
+
+<div class="row">
+
+   {% for pk in user_list %}
+    <div class="card">
+  <img class="card-img-top img-fluid rounded-circle" src="{{pk.client.avatar}}" alt="Alternatywny opis obrazka">
+  <div class="card-body">
+    <h4 class="card-title">{{pk.username}}</h4>
+    <p class="card-text"></p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Telefon: {{pk.client.tel}}</li>
+    <li class="list-group-item">Członek: {{pk.client.group}}</li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="btn btn-outline-secondary">Edycja</a>
+
+  </div>
+</div>
+    {% endfor %}
+
+    </div>
+
+{% else %}
+<div class="row justify-content-md-center">
+  <div class="card text-white bg-warning">
+  <div class="card-header">Error xD</div>
+  <div class="card-body">
+    <h5 class="card-title">Nie masz dostępu do tej witryny</h5>
+    <p class="card-text">Zapłać a pomyślimy :D</p>
+  </div>
+ </div>
+{% endif %}
+{% endblock %}

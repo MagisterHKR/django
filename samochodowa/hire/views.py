@@ -18,3 +18,4 @@ def add_hire(request):
 
 def test(request):
     if request.method == "POST":
+        pass

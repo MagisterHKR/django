@@ -3,9 +3,10 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    # ex: /car/
-    path('', views.profil, index='profil'),
-    # ex /car/2
+
+    path('', views.profil , name='profil'),
+    path('list/', views.list_profil, name='list_profil')
+    #path('<int:user_id>/', views.list_profil, name='list_profil')
 
 
 ]

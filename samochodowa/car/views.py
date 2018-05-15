@@ -18,7 +18,7 @@ def details(request,car_id):
 
     return render(request, 'details.html',{'car': car})
 
-# Widok dodania nowego auta
+
 #Views add car
 def add_car(request):
 

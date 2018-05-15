@@ -1,6 +1,40 @@
-<form method="post">
-  {% csrf_token %}
-  {{ user_form.as_p }}
-  {{ profile_form.as_p }}
-  <button type="submit">Save changes</button>
-</form>
+{% extends 'base.html' %}
+
+{% block title_name %}<h1>Twój profi</h1>{% endblock %}
+
+{% block main %}
+{% if request.user.is_authenticated %}
+ <div class="row justify-content-md-center">
+<div class="card">
+  <img class="card-img-top img-fluid rounded-circle" src="{{user.client.avatar}}" alt="Alternatywny opis obrazka">
+  <div class="card-body">
+    <h4 class="card-title">{{user.username}}</h4>
+    <p class="card-text"></p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Telefon: {{user.client.tel}}</li>
+    <li class="list-group-item">Członek: {{user.client.group}}</li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="btn btn-outline-secondary">Edycja</a>
+
+  </div>
+</div>
+ </div>
+{% else %}
+<div class="row justify-content-md-center">
+  <div class="card text-white bg-warning">
+  <div class="card-header">Error xD</div>
+  <div class="card-body">
+    <h5 class="card-title">Nie jesteś zalogowany</h5>
+    <p class="card-text">Zaloguj się aby zobaczyć swój profil</p>
+  </div>
+ </div>
+{% endif %}
+{% endblock %}
+
+
+
+
+
+
