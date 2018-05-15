@@ -22,4 +22,5 @@ urlpatterns = [
     path('lease/', include('lease.urls')),
     path('profil/', include('users.urls')),
 
+
 ]

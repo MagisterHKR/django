@@ -19,8 +19,8 @@
 		<div class="btn-group" role="group">
             {% if request.user.is_authenticated %}
   <button type="button" class="btn btn-secondary">Wypożyczenia</button>
-  <button type="button" class="btn btn-secondary">Profil</button>
-  <button type="button" class="btn btn-secondary">Wyloguj</button>
+  <a href="{% url 'profil' %}" class="btn btn-secondary">Profil</a>
+  <a href="#" class="btn btn-secondary">Wyloguj</a>
             {% else %}
    <button type="button" class="btn btn-secondary">Zaloguj</button>
    <button type="button" class="btn btn-secondary">Zarejestruj</button>

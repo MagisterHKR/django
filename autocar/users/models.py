@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 class Client(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
-    nickname = models.CharField('Nick',max_length=10,default='Nowy')
+    nickname = models.CharField('Nick',max_length=20,default='Nowy')
     tel = models.CharField('Telefon',max_length=9)
     pesel = models.CharField('Pesel', max_length=11)
     group = models.CharField('Grupa',max_length=20,default='Klient')
