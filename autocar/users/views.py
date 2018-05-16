@@ -1,14 +1,31 @@
-from django.shortcuts import render,redirect
-from django.contrib.auth import logout
-from .models import Client
+from django.shortcuts import render,render_to_response
+from django.http import HttpResponse
+from django.contrib import auth
 from django.contrib.auth.models import User
+
+
 # Create your views here.
 
 def profil(request):
 
-    return render(request, 'users/profile.html')
+    return render(request, 'users/profil.html')
 
 def list_profil(request):
     client = User.objects.all()
     return render(request, 'users/list_profile.html',{'user_list': client})
 
+def login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = auth.authenticate(username=username,password=password)
+        if user is not None:
+            auth.login(request,user)
+            return HttpResponse("Zalogowano")
+    else:
+        return render(request, 'users/login.html')
+
+
+def logout(request):
+    auth.logout(request)
+    return render_to_response('users/logout.html')

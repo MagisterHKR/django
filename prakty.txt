@@ -1,0 +1,43 @@
+7.05
+Szkolenie BHP.
+Przygotowanie stanowiska pracy.
+Instalacja i konfiguracja systemu Linux Server.
+
+
+8.05
+Nauka podstawowych pojêæ zwi¹zanych z sieciami.
+Rozpoczêcie prac nad Aplikacj¹ wypo¿yczalni pojazdów.
+Testowanie karty graficznej.
+
+
+9.05
+Instalacja i konfiguracja oprogramowania na komputerze klienta.
+Tworzenie klona dysku HDD oraz SSD.
+Tworzenie modeli,relacji,templatek oraz widoków aplikacji.
+
+10.05
+Wymiana podzespo³ów jednostki centralnej.
+Nauka technologi Bootstrap 4 oraz poznanie modelu MVC.
+Diagnostyka uszkodzonej jednostki centralnej.
+
+11.05
+Przeprowadzenie testów tworzonej aplikacji.
+Eliminacja b³êdów aplikacji.
+Instalacja i konfiguracja systemu Windows oraz przeprowadzenie aktualizacji sterowników.
+
+
+
+14.05
+Inwentaryzacja sprzêtów komputerowych w poszczególnych oddzia³ach na terenie zak³adu.
+Przepisanie aplikacji na nowo, wdra¿aj¹c wzorce projektowe.
+Tworzenie formularzy obs³uguj¹ce dodawanie danego pojazdu oraz u¿ytkownika.
+
+
+15.05
+Zamiana formatu z MBR na GPT na dysku m2
+Diagnostyka podzespo³ów, demonta¿ i wymiana.
+Poprawienie widoków i templatek projktu.
+
+16.05
+Diagnostyka i naprawa jednostki centralnej.
+Tworzenie formularza logowania u¿ytkownika.

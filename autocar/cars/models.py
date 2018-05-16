@@ -4,6 +4,7 @@ from django.db import models
 
 # Model Samochodu
 class Car(models.Model):
+
     type_choice = (
         (1, 'Hatchback'),
         (2, 'Sedan'),
