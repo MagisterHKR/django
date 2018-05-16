@@ -12,13 +12,6 @@ class Lease(models.Model):
     comments = models.TextField('Uwagi')
     data = models.DateTimeField(auto_now=True)
 
-    def car_checked(self):
-        self.car.checked=True
-    def car_uncecked(self):
-        self.car.checked=False
-
-
-
     class Meta:
         verbose_name = "Wypożyczenie"
         verbose_name_plural = "Wypożyczenia"

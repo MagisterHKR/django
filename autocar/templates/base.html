@@ -16,9 +16,16 @@
 		<a href="{% url 'car_index' %}"><h1>Wypożyczalnia</h1></a>
 	</div>
 	<div class="col text-right">
+    {% if request.user.is_staff %}
+    <!-- Admin -->
+        <div class="btn-group" role="group">
+            <a href="{% url 'list_profil' %}" class="btn btn-danger">Klienci</a>
+            <a href="{% url 'add_car' %}" class="btn btn-danger">Dodaj auto</a>
+            <a href="#" class="btn btn-danger">Dodaj wypożyczenie</a>
+        </div>
+    {% endif %}
 		<div class="btn-group" role="group">
             {% if request.user.is_authenticated %}
-  <button type="button" class="btn btn-secondary">Wypożyczenia</button>
   <a href="{% url 'profil' %}" class="btn btn-secondary">Profil</a>
   <a href="{% url 'logout' %}" class="btn btn-secondary">Wyloguj</a>
             {% else %}

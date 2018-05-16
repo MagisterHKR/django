@@ -1,5 +1,5 @@
 from django.shortcuts import render,render_to_response
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from django.contrib import auth
 from django.contrib.auth.models import User
 
@@ -21,7 +21,7 @@ def login(request):
         user = auth.authenticate(username=username,password=password)
         if user is not None:
             auth.login(request,user)
-            return HttpResponse("Zalogowano")
+            return HttpResponseRedirect('/profil/logged/')
     else:
         return render(request, 'users/login.html')
 
@@ -29,3 +29,7 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return render_to_response('users/logout.html')
+
+def logged(request):
+
+    return render(request, 'users/logged.html')
