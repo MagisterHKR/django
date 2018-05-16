@@ -1,0 +1,24 @@
+
+{% block nav %}
+<section id='nav' class='container'>
+	<div class='row'>
+	<div class="col">
+		<a href="{% url 'car_index' %}"><h1>Wypożyczalnia</h1></a>
+	</div>
+	<div class="col text-right">
+		<div class="btn-group" role="group">
+            {% if request.user.is_authenticated %}
+  <button type="button" class="btn btn-secondary">Wypożyczenia</button>
+  <a href="{% url 'profil' %}" class="btn btn-secondary">Profil</a>
+  <a href="{% url 'logout' %}" class="btn btn-secondary">Wyloguj</a>
+            {% else %}
+  <a href="{% url 'login' %}" class="btn btn-secondary">Zaloguj</a>
+   <button type="button" class="btn btn-secondary">Zarejestruj</button>
+            {% endif %}
+</div>
+</div>
+  </div>
+</div>
+	</div>
+</section>
+{% endblock %}
