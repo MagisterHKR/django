@@ -1,6 +1,7 @@
 
 from django import forms
 from cars.models import Car
+from users.models import Client
 
 from django.contrib.auth.models import User
 
@@ -15,6 +16,8 @@ class AddCar(forms.ModelForm):
 
 
 
-class lease_client(forms.ModelForm):
+
+class user_register(forms.ModelForm):
+    pass
     
 
