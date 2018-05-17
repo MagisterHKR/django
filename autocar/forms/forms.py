@@ -15,4 +15,6 @@ class AddCar(forms.ModelForm):
 
 
 
+class lease_client(forms.ModelForm):
+    
 

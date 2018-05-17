@@ -16,7 +16,5 @@ class Lease(models.Model):
         verbose_name = "Wypożyczenie"
         verbose_name_plural = "Wypożyczenia"
 
-
-
     def __str__(self):
         return self.title
