@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title_name %}<h1>Nasza oferta</h1>{% endblock %}
+
+{% block main %}
+
+ <div class="row justify-content-md-center">
+
+{% if car.checked == True %}
+<div class="car checked">
+{% else %}
+<div class="car">
+{% endif %}
+
+  <img class="card-img-top img-fluid" src="{{car.photo}}" alt="Brak zdjęcia">
+  <div class="card-body">
+    <h4 class="card-title">{{car.mark}}</h4>
+    <h6 class="card-subtitle text-muted">{{car.model}}</h6>
+    <p class="card-text">{{car.description}}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Marka: {{car.mark}}</li>
+    <li class="list-group-item">Skrzynia: {{car.gearbox}}</li>
+    <li class="list-group-item">Paliwo: {{car.fuel}}</li>
+    <li class="list-group-item">Typ: {{car.type}}</li>
+    <li class="list-group-item">
+        <div class="input-group mb-3"><div class="input-group-prepend"> <span class="input-group-text">PLN</span></div> <span class="form-control">{{car.charge}}</span><div class="input-group-append"> <span class="input-group-text">,00</span></div></div>
+
+
+    </li>
+  </ul>
+  <div class="card-body">
+    <a href="{% url 'car_list' %}" class="btn btn-outline-info">Główna</a>
+  {% if car.checked == False %}
+    <input type="button" class="btn btn-primary" data-toggle="modal" data-target="#potwierdzenie" value="Wypożycz">
+  {% endif %}
+  {% if request.user.is_staff %}
+      <a href="{% url 'car_update' car.id 'update' %}" class="btn btn-warning">Edytuj</a>
+  {% endif %}
+  </div>
+</div>
+{% endblock %}
+
+
+{% block pop-up %}
+<div class="modal" id="potwierdzenie" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Rezerwacja wypożyczenia</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Czy na pewno chcesz zarezerwować ten pojazd?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
+          <a href="{% url 'raport_create' car.id %}" type="button" class="btn btn-primary">Potwierdz</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

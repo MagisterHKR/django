@@ -1,6 +1,9 @@
 from django.db import models
 
 # Create your models here.
+from django.urls import reverse
+
+
 
 # Model Samochodu
 class Car(models.Model):
@@ -35,6 +38,9 @@ class Car(models.Model):
     charge = models.CharField('Koszt', max_length=20)
     photo = models.URLField('Zdjęcie', default='https://www.freeiconspng.com/uploads/sport-car-icon-0.png')
     checked = models.BooleanField('Wypożyczony', default=False)
+
+    def get_absolute_url(self):
+        return reverse('car_detail', kwargs={'car_id': self.pk})
 
     class Meta:
         verbose_name = "Samochód"

@@ -13,18 +13,20 @@
 <section id='nav' class='container'>
 	<div class='row'>
 	<div class="col">
-		<a href="{% url 'car_index' %}"><h1>Wypożyczalnia</h1></a>
+		<h1>Wypożyczalnia</h1>
 	</div>
-	<div class="col text-right">
+	<div class="col-8 text-right">
     {% if request.user.is_staff %}
     <!-- Admin -->
         <div class="btn-group" role="group">
+
             <a href="{% url 'list_profil' %}" class="btn btn-danger">Klienci</a>
-            <a href="{% url 'add_car' %}" class="btn btn-danger">Dodaj auto</a>
-            <a href="#" class="btn btn-danger">Dodaj wypożyczenie</a>
+            <a href="{% url 'car_create' %}" class="btn btn-danger">Dodaj auto</a>
+            <a href="{% url 'raport_list' %}" class="btn btn-danger">Raporty</a>
         </div>
     {% endif %}
 		<div class="btn-group" role="group">
+        <a href="{% url 'car_list' %}" class="btn btn-secondary">Główna</a>
             {% if request.user.is_authenticated %}
   <a href="{% url 'profil' %}" class="btn btn-secondary">Profil</a>
   <a href="{% url 'logout' %}" class="btn btn-secondary">Wyloguj</a>
@@ -46,39 +48,12 @@
     </div>
   </div>
   	{% block main %}
-  <div class="row justify-content-md-center">
 
-    <div class="col-sm-4 text-center ">
-    	   <div class="card border-danger">
-  			<img class="card-img-top" height="250" src="http://demo.sc.chinaz.com/Files/pic/icons/1499/chinaz3.png" alt="Obrazek w karcie">
-  		<div class="card-body">
-    	<p class="card-text"><button type="button" class="btn btn-outline-info">Szczegóły</button></p>
-  		</div>
-		</div>
-    </div>
-    <div class="col-sm-4 text-center">
-	    	    <div class="card">
-  <img class="card-img-top" height="250" src="http://demo.sc.chinaz.com/Files/pic/icons/1499/chinaz3.png" alt="Obrazek w karcie">
-  <div class="card-body">
-    <p class="card-text"><button type="button" class="btn btn-outline-info">Szczegóły</button></p>
-  </div>
-</div>
-
-    </div>
-    <div class="col-sm-4 text-center">
-  		<div class="card">
-  		<img class="card-img-top" height="250" src="http://demo.sc.chinaz.com/Files/pic/icons/1499/chinaz3.png" alt="Obrazek w karcie">
-  <div class="card-body">
-    <p class="card-text"><button type="button" class="btn btn-outline-info">Szczegóły</button></p>
-  </div>
-</div>
-    </div>
-
-</div>
       {% endblock %}
 </main>
  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+{% block pop-up %}{% endblock %}
 </body>
 </html>

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title_name %}<h1>Nasza oferta</h1>{% endblock %}
+
+
+{% block main %}
+  <div class="row justify-content-md-center">
+    {% for car in car_list %}
+	    <div class="col-sm-4 text-center mb-3">
+            {% if car.checked == True %}
+            <div class="card border-danger bg-danger">
+            {% else %}
+            <div class="card">
+            {% endif %}
+                <img class="card-img-top" height="250" src="{{car.photo}}" alt="Obrazek w karcie">
+                <div class="card-body">
+                <p class="card-text"><a href="{% url 'car_detail' car.id %}" class="btn btn-outline-info">Szczegóły</a></p>
+            </div>
+
+
+    </div>
+    </div>
+    {% endfor %}
+        </div>
+{% endblock %}

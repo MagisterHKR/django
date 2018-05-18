@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title_name %}<h1></h1>{% endblock %}
+
+{% block main %}
+
+<div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Data złożenia rezerwacji: {{ data }}</h4>
+  <p>Samochód został zarezerwowany.</p>
+  <p>Proszę sprawdzić e-maila w celu potwierdzenia zamówienia.</p>
+  <hr>
+  <p class="mb-0">W E-mail'u jest zawarty link, który pozwoli nam zweryfikować Pańska tożsamość</p>
+</div>
+
+{% endblock %}
+
