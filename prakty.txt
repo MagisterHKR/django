@@ -41,3 +41,14 @@ Poprawienie widoków i templatek projktu.
 16.05
 Diagnostyka i naprawa jednostki centralnej.
 Tworzenie formularza logowania u¿ytkownika.
+Inwentaryzacja pomieszczenia na terenie zak³³adu
+
+17.05
+Porz¹dki na urzdowanym stanowisku
+Tworzenie specjalnego okablowania(œwieczki) do specjalnego urz¹dzenia.
+Dodanie wiêkszej funkcjonalnoœci do Aplikacji mobilnej.
+
+18.05
+Stworzenie Raportów oraz kontrolerów Aplikacji.
+Poprawienie istniej¹cych widoków i dodanie nowych.
+Zastosowanie w projekcie widoków generycznych.

@@ -19,7 +19,7 @@ class RaportsListView(ListView):
     template_name = 'lease/raport_list.html'
 
     def get_queryset(self):
-        return Raport.objects.all()
+        return Raport.objects.all().order_by('-time')
 
 
 class RaportCreateView(CreateView):
