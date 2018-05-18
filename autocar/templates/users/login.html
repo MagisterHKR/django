@@ -3,8 +3,9 @@
 {% block title_name %}<h1>Zaloguj się</h1>{% endblock %}
 
 {% block main %}
-{% if request.user.is_authenticated %}
 <div class="row justify-content-md-center">
+{% if request.user.is_authenticated %}
+
   <div class="card text-white bg-warning mb-3">
   <div class="card-header">Status</div>
   <div class="card-body">
@@ -18,16 +19,17 @@
     <div class="form-control">
     <label for="username">Użytkownik:</label>
 
-        <input type="text" id="username" maxlength="20" required="" name="username">
-<br>
+        <input id="username" maxlength="20" required="" name="username" type="text" class="form-control">
+
     <label for="password">Hasło:</label>
 
-        <input type="password" id="password" maxlength="20" required="" name="password">
+        <input id="password" maxlength="20" required="" name="password" type="password" class="form-control">
 
 
 <br>
-        <input type="submit" class="save btn btn-default" value="Zaloguj"/>
-    </form>
+        <input class="btn btn-outline-secondary" value="Zaloguj" type="submit">
+
+    </div></form>
     </div>
 {% endif %}
 {% endblock %}
