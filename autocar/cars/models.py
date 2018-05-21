@@ -7,9 +7,9 @@ from django.urls import reverse
 
 # Model Samochodu
 class Car(models.Model):
-
+    HB=1
     type_choice = (
-        (1, 'Hatchback'),
+        (HB, 'Hatchback'),
         (2, 'Sedan'),
         (3, 'Kombi'),
         (4, 'Sportowe | Coupe'),
@@ -30,6 +30,7 @@ class Car(models.Model):
         (3, 'Pół Automatyczna'),
     )
     model = models.CharField('Model', max_length=20)
+    number_plate = models.CharField('Rejestracja',max_length=20,default='BS -----')
     mark = models.CharField('Marka', max_length=20)
     gearbox = models.IntegerField('Skrzynia biegów', choices=gearbox_choice)
     fuel = models.IntegerField('Paliwo', choices=fuel_choice)
@@ -48,3 +49,4 @@ class Car(models.Model):
 
     def __str__(self):
         return self.model
+

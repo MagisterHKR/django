@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+
+
+
+
+{% block title_name %}<h1>Szczegóły rezerwacji</h1>{% endblock %}
+
+{% block main %}
+  <div class="row justify-content-md-center">
+<div class="card col">
+
+  <div class="card-body">
+    <h4 class="card-title">Raport</h4>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Dzień: {{ raport.data }}</li>
+    <li class="list-group-item">Godzina: {{ raport.time }}</li>
+    <li class="list-group-item">Status: <span class="badge badge-warning"> {{ raport.status }}</span></li>
+    <li class="list-group-item">Przyją | Odrzucił zgłoszenie: <span class="badge badge-warning">{{ raport.worker_accept }}</span></li>
+    <li class="list-group-item">Wypożyczył: <span class="badge badge-success">{{ raport.worker }}</span></li>
+    <li class="list-group-item">Odebrał: <span class="badge badge-success">{{ raport.worker_reject }}</span></li>
+
+  </ul>
+</div>
+
+<div class="card col">
+  <div class="card-body">
+    <h4 class="card-title">Dane Pojazdu</h4>
+  </div>
+ <ul class="list-group list-group-flush">
+   <li class="list-group-item">Model: {{car.model}}</li>
+     <li class="list-group-item">Marka: {{car.mark}}</li>
+     <li class="list-group-item">Skrzynia: {{car.gearbox}}</li>
+     <li class="list-group-item">Paliwo: {{car.fuel}}</li>
+    <li class="list-group-item">Typ: {{car.type}}</li>
+    <li class="list-group-item">
+        <div class="input-group mb-3"><div class="input-group-prepend"> <span class="input-group-text">PLN</span></div> <span class="form-control">{{car.charge}}</span><div class="input-group-append"> <span class="input-group-text">,00</span></div></div>
+    </li>
+     {% if car.checked == True %}
+     <li class="list-group-item">Wypożyczony: Tak</li>
+     {% else %}
+     <li class="list-group-item">Wypożyczony: Nie</li>
+     {% endif %}
+
+  </ul>
+</div>
+
+<div class="card col">
+
+  <div class="card-body">
+    <h4 class="card-title">Dane Klienta</h4>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Nazwa użytkownika: {{user.nickname}}</li>
+    <li class="list-group-item">Imię: {{user.user.first_name}}</li>
+    <li class="list-group-item">Nazwisko: {{user.user.last_name}}</li>
+    <li class="list-group-item">Pesel: {{user.pesel}}</li>
+    <li class="list-group-item">Telefon: {{user.tel}}</li>
+    <li class="list-group-item">Członek: {{user.group}}</li>
+  </ul>
+
+
+</div>
+  </div>
+      <div class="row justify-content-md-center">
+    {% if request.user.client.group == "Pracownik"  or request.user.client.group == "Admin" %}
+        {% if car.checked == False %}
+        <a href="{% url 'raport_accept' raport.id %}" type="button" class=" col btn btn-success">Potwierdz wypożyczenie</a>
+
+
+        {% endif %}
+        {% if raport.status == "Gotowy do odbioru" %}
+            <a href="{% url 'raport_car_accept' raport.id %}" type="button" class=" col btn btn-success">Wydaj samochód</a>
+        {% elif raport.status == "Wydany" %}
+            <a href="##" type="button" class=" col btn btn-primary">Odbierz samochód</a>
+    {% else %}
+        <a href="{% url 'raport_car_reject' raport.id %}" type="button" class=" col btn btn-dark">Odrzuć wyporzyczenie</a>
+            {% endif %}
+        {% if request.user.client.group == "Kierownik" or request.user.client.group == "Admin" %}
+            <a href="##" type="button" class=" col btn btn-danger">Usuń report</a>
+            <a href="{% url 'raport_car_reject' raport.id %}" type="button" class=" col btn btn-dark">Odrzuć wyporzyczenie</a>
+            {% endif %}
+     {% endif %}
+      </div>
+{% endblock %}
+

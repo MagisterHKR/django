@@ -12,8 +12,6 @@ from .models import Lease,Raport
 # Create your views here.
 
 
-def lease_details(request):
-    pass
 
 class RaportsListView(ListView):
     template_name = 'lease/raport_list.html'
@@ -31,10 +29,44 @@ def CreateRaport(request,car_id):
     user = request.user.client
 
     car = Car.objects.get(id=car_id)
-    report = Raport(client=user,car=car)
+    report = Raport(client=user,car=car,status='W trakcie realizacji')
     report.save()
     return render(request,'lease/success.html',{'data':report.data})
 
 def success(request):
 
     return render_to_response('lease/success.html')
+
+def RaportDetail(request,raport_id):
+    raport = Raport.objects.get(id=raport_id)
+    user = Client.objects.get(nickname=raport.client)
+    car = Car.objects.get(id=raport.car.id)
+
+    return render(request,'lease/raport_detail.html',{'raport':raport,'car':car,'user':user})
+
+def RaportAccept(request,raport_id):
+    raport = Raport.objects.get(id=raport_id)
+    raport.status='Gotowy do odbioru'
+    raport.worker_accept=request.user.username
+    raport.save()
+    car = Car.objects.get(id=raport.car.id)
+    car.checked=True
+    car.save()
+
+    return render(request, 'lease/accept.html', {"status": raport.status})
+
+def CarAcctept(request,raport_id):
+    raport = Raport.objects.get(id=raport_id)
+    raport.status = 'Wydany'
+    raport.worker=request.user.username
+    raport.save()
+
+    return render(request, 'lease/accept.html',{"status": raport.status})
+
+def CarReject(request,raport_id):
+    raport = Raport.objects.get(id=raport_id)
+    raport.status = 'Odrzucony'
+    raport.worker_accept=request.user.username
+    raport.save()
+
+    return render(request, 'lease/accept.html',{"status": raport.status})

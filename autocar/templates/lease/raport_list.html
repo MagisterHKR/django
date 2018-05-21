@@ -11,54 +11,36 @@
       <th>Użytkownik:</th>
       <th>Samochód:</th>
       <th>Data:</th>
+      <th>Status:</th>
+      <th>Opcje:</th>
     </tr>
   </thead>
   <tbody>
   {% for raport in raport_list %}
       <tr>
-      <th scope="row">#</th>
-    <td>{{ raport.client }}</td>
-    <td>{{ raport.car }}</td>
+    <th scope="row">#</th>
+    <td>{{ raport.client.user.first_name }} {{ raport.client.user.last_name }}</td>
+    <td>{{ raport.car.model }} {{ raport.car.mark }} {{ raport.car.number_plate }}</td>
     <td>{{ raport.data }}: {{ raport.time }}</td>
+      {% if raport.status == "Wydany" %}
+      <td><span class="btn btn-success">{{ raport.status }}</span></td>
+       {% elif raport.status == "Gotowy do odbioru" %}
+        <td><span class="btn btn-info">{{ raport.status }}</span></td>
+      {% elif raport.status == "Odrzucony" %}
+        <td><span class="btn btn-danger">{{ raport.status }}</span></td>
+      {% else %}
+        <td><span class="btn btn-warning">{{ raport.status }}</span></td>
+      {% endif %}
+
+
+     {% if request.user.client.group == "Pracownik"  or request.user.client.group == "Admin" %}
+    <td><a href="{% url 'raport_detail' raport.id %}" type="button" class="btn btn-info">Szczegóły</a></td>
+     {% endif %}
       </tr>
 {% endfor %}
-
-
-
   </tbody>
 </table>
 {% endblock %}
 
 
 
-
-
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Username</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>

@@ -3,12 +3,12 @@
 {% block title_name %}<h1>Edytujesz samochód o id: {{ car.id }}</h1>{% endblock %}
 
 {% block main %}
-
+	<div class="row justify-content-md-center">
 <form method="POST" class="post-form">{% csrf_token %}
 
 {{form.as_p}}
         <button type="submit" class="save btn btn-default">Aktualizuj</button>
     </form>
-
+    </div>
 {% endblock %}
 

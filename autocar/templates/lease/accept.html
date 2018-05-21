@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title_name %}<h1></h1>{% endblock %}
+
+{% block main %}
+{% if status == "Wydany" %}
+<div class="alert alert-success" >
+  <h4 class="alert-heading">Status wypożyczenia: {{ status }}</h4>
+  <p>Samochód został odebrany przez klienta</p>
+  <p></p>
+  <hr>
+  <p class="mb-0">Dla klienta została wysłana kopia faktury wypożyczenia</p>
+</div>
+    {% elif status == "Odrzucony" %}
+<div class="alert alert-danger" >
+  <h4 class="alert-heading">Status wypożyczenia: {{ status }}</h4>
+  <p>Wypożyczenie zostało odrzucone.</p>
+  <p></p>
+  <hr>
+  <p class="mb-0">Dla klienta wysłany został e-mail, w którym poinformowaliśmy go o szczegółach odmowy wypożyczenia</p>
+</div>
+    {% else %}
+<div class="alert alert-success" >
+  <h4 class="alert-heading">Status wypożyczenia {{ status }}</h4>
+  <p>Samochód został przygotowany do odbioru.</p>
+  <p></p>
+  <hr>
+  <p class="mb-0">Dla klienta wysłany został e-mail, w którym poinformowaliśmy go o pomyślnym rozpatrzeniu wypożyczenia</p>
+</div>
+{% endif %}
+{% endblock %}

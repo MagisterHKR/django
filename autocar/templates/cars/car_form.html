@@ -3,7 +3,7 @@
 {% block title_name %}<h1>Dodaj samochód</h1>{% endblock %}
 
 {% block main %}
-
+	<div class="row justify-content-md-center">
 <form method="POST" class="post-form">{% csrf_token %}
 
 
@@ -60,6 +60,6 @@
         <button type="submit" class="save btn btn-default">Dodaj</button>
 
     </form>
-
+    </div>
 {% endblock %}
 

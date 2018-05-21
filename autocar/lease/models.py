@@ -25,8 +25,10 @@ class Raport(models.Model):
     car = models.ForeignKey(Car,on_delete=models.CASCADE)
     data = models.DateField(auto_now=True)
     time = models.TimeField(auto_now=True)
-
-
+    status = models.CharField('Status',max_length=20,default='W trakcie rozpatrywania')
+    worker_accept = models.CharField('Pracownik przyjmujący',max_length=20,default='')
+    worker = models.CharField('Pracownik wydający', max_length=20, default='')
+    worker_reject = models.CharField('Pracownik odbierający',max_length=20,default='')
 
     class Meta:
         verbose_name = "Raport"
