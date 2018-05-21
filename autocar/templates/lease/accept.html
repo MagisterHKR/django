@@ -19,6 +19,14 @@
   <hr>
   <p class="mb-0">Dla klienta wysłany został e-mail, w którym poinformowaliśmy go o szczegółach odmowy wypożyczenia</p>
 </div>
+    {% elif status == "Odebrany" %}
+<div class="alert alert-info" >
+  <h4 class="alert-heading">Status wypożyczenia: {{ status }}</h4>
+  <p>Auto skierować na myjnie i wyczyścić</p>
+  <p></p>
+  <hr>
+  <p class="mb-0">Przed ponownym wypożyczeniem sprawdzić ciśnienie w oponach</p>
+</div>
     {% else %}
 <div class="alert alert-success" >
   <h4 class="alert-heading">Status wypożyczenia {{ status }}</h4>

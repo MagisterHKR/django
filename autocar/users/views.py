@@ -1,3 +1,10 @@
+import json
+import urllib
+
+
+from django.shortcuts import render, redirect
+from django.conf import settings
+from django.contrib import messages
 from django.shortcuts import render,render_to_response
 from django.http import HttpResponseRedirect
 from django.contrib import auth
@@ -14,6 +21,14 @@ def list_profil(request):
     client = User.objects.all()
     return render(request, 'users/list_profile.html',{'user_list': client})
 
+
+
+
+
+
+
+
+
 def login(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -24,6 +39,12 @@ def login(request):
             return HttpResponseRedirect('/profil/logged/')
     else:
         return render(request, 'users/login.html')
+
+
+
+
+
+
 
 
 def logout(request):

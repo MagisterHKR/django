@@ -70,3 +70,14 @@ def CarReject(request,raport_id):
     raport.save()
 
     return render(request, 'lease/accept.html',{"status": raport.status})
+
+def CarDone(request,raport_id):
+    raport = Raport.objects.get(id=raport_id)
+    raport.status = 'Odebrany'
+    raport.worker_done=request.user.username
+    raport.save()
+    car = Car.objects.get(id=raport.car.id)
+    car.checked = False
+    car.save()
+
+    return render(request, 'lease/accept.html',{"status": raport.status})

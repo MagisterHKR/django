@@ -18,6 +18,8 @@ class AddCar(forms.ModelForm):
 
 
 class user_register(forms.ModelForm):
-    pass
+    class Meta:
+        model = User
+        fields=()
     
 
