@@ -4,7 +4,7 @@ import urllib
 
 from django.shortcuts import render, redirect
 from django.conf import settings
-from django.contrib import messages
+
 from django.shortcuts import render,render_to_response
 from django.http import HttpResponseRedirect
 from django.contrib import auth

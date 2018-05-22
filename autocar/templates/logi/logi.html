@@ -1,0 +1,36 @@
+
+{% extends 'base.html' %}
+
+{% block title_name %}<h1>Logi</h1>{% endblock %}
+
+{% block main %}
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Użytkownik:</th>
+      <th>Akcja:</th>
+      <th>Raport:</th>
+      <th>Auto:</th>
+      <th>Data:</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for logi in logi_list %}
+      <tr>
+    <th scope="row">#</th>
+    <td>{{ logi.user }}</td>
+    <td>{{ logi.action }}</td>
+    <td><a href="{% url 'raport_detail' logi.raport %}" type="button" class="btn btn-info">Podgląd</a></td>
+    <td><p class="card-text"><a href="{% url 'car_detail' logi.car %}" class="btn btn-info">Podgląd</a></td>
+    <td>{{ logi.date }}</td>
+
+      </tr>
+{% endfor %}
+  </tbody>
+</table>
+{% endblock %}
+
+
+

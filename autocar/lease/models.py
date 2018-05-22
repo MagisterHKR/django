@@ -29,7 +29,7 @@ class Raport(models.Model):
     worker_accept = models.CharField('Pracownik przyjmujący',max_length=20,default='')
     worker = models.CharField('Pracownik wydający', max_length=20, default='')
     worker_reject = models.CharField('Pracownik odbierający',max_length=20,default='')
-
+    active = models.BooleanField('Aktywny',default=True)
     class Meta:
         verbose_name = "Raport"
         verbose_name_plural = "Raporty"

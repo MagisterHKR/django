@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'cars.apps.CarsConfig',
     'lease.apps.LeaseConfig',
     'users.apps.UsersConfig',
+    'logi.apps.LogiConfig',
 ]
 
 MIDDLEWARE = [

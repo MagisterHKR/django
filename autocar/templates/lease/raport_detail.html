@@ -7,7 +7,11 @@
 {% block title_name %}<h1>Szczegóły rezerwacji</h1>{% endblock %}
 
 {% block main %}
-  <div class="row justify-content-md-center">
+    {% if raport.active == False %}
+        <div class="row justify-content-md-center">
+  {% else %}
+        <div class="row justify-content-md-center">
+  {% endif %}
 <div class="card col">
 
   <div class="card-body">
@@ -19,7 +23,7 @@
     <li class="list-group-item">Status: <span class="badge badge-warning"> {{ raport.status }}</span></li>
     <li class="list-group-item">Przyją | Odrzucił zgłoszenie: <span class="badge badge-warning">{{ raport.worker_accept }}</span></li>
     <li class="list-group-item">Wypożyczył: <span class="badge badge-success">{{ raport.worker }}</span></li>
-    <li class="list-group-item">Odebrał: <span class="badge badge-success">{{ raport.worker_done }}</span></li>
+    <li class="list-group-item">Odebrał: <span class="badge badge-success">{{ raport.worker_reject }}</span></li>
 
   </ul>
 </div>
@@ -65,27 +69,26 @@
   </div>
       <div class="row justify-content-md-center">
     {% if request.user.client.group == "Pracownik"  or request.user.client.group == "Admin" %}
-{% if raport.status == "Odrzucony" %}
-            {% if request.user.client.group == "Kierownik" or request.user.client.group == "Admin" %}
-            <a href="##" type="button" class=" col btn btn-danger">Usuń report</a>
-
-            {% endif %}
-{% else %}
-        {% if car.checked == False %}
-        <a href="{% url 'raport_accept' raport.id %}" type="button" class=" col btn btn-success">Potwierdz wypożyczenie</a>
 
 
+        {% if car.checked == False and raport.status == "W trakcie realizacji" %}
+        <a href="{% url 'raport_accept' raport.id %}" type="button" class=" col btn btn-success m-3">Potwierdz wypożyczenie</a>
+            <a href="{% url 'raport_car_reject' raport.id %}" type="button" class=" col btn btn-dark m-3">Odrzuć wyporzyczenie</a>
         {% endif %}
         {% if raport.status == "Gotowy do odbioru" %}
-            <a href="{% url 'raport_car_accept' raport.id %}" type="button" class=" col btn btn-success">Wydaj samochód</a>
+            <a href="{% url 'raport_car_accept' raport.id %}" type="button" class=" col btn btn-success m-3">Wydaj samochód</a>
+            <a href="{% url 'raport_car_reject' raport.id %}" type="button" class=" col btn btn-dark m-3">Odrzuć wyporzyczenie</a>
         {% elif raport.status == "Wydany" %}
-            <a href="{% url 'raport_car_done' raport.id %}" type="button" class=" col btn btn-primary">Odbierz samochód</a>
-        {% else %}
-        <a href="{% url 'raport_car_reject' raport.id %}" type="button" class=" col btn btn-dark">Odrzuć wyporzyczenie</a>
+            <a href="{% url 'raport_car_done' raport.id %}" type="button" class=" col btn btn-primary m-3">Odbierz samochód</a>
             {% endif %}
 
         {% endif %}
-      {% endif %}
+
       </div>
+    {% if request.user.client.group == "Kierownik" or request.user.client.group == "Admin" %}
+        <div class="row justify-content-md-center">
+            <a href="##" type="button" class=" col btn btn-danger m-3">Usuń report</a>
+        </div>
+            {% endif %}
 {% endblock %}
 

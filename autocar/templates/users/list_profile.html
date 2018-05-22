@@ -5,31 +5,33 @@
 {% block main %}
 {% if request.user.is_authenticated %}
 
-<div class="row">
+<table class="table ">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Nick:</th>
+      <th>Imię:</th>
+      <th>Nazwisko:</th>
+      <th>Grupa:</th>
+      <th>Operacje:</th>
 
-   {% for pk in user_list %}
-    <div class="card" style="width: 250px;">
-  <img class="card-img-top img-fluid rounded-circle" src="{{pk.client.avatar}}" alt="Alternatywny opis obrazka">
-  <div class="card-body">
-    <h4 class="card-title">{{pk.username}}</h4>
-    <p class="card-text"></p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Imię: {{pk.first_name}}</li>
-    <li class="list-group-item">Nazwisko: {{pk.last_name}}</li>
-    <li class="list-group-item">Pesel: {{pk.client.pesel}}</li>
-    <li class="list-group-item">Telefon: {{pk.client.tel}}</li>
-    <li class="list-group-item">Członek: {{pk.client.group}}</li>
-  </ul>
-  <div class="card-body">
+    </tr>
+  </thead>
+  <tbody>
+  {% for pk in user_list %}
+      <tr>
+    <th scope="row">#</th>
+    <td>{{ pk.client.nickname }}</td>
+    <td>{{pk.first_name}}</td>
+    <td>{{pk.last_name}}</td>
+    <td>{{pk.client.group}}</td>
+    <td> <a href="#" class="btn btn-outline-secondary">Pokaż profil</a></td>
 
-    <a href="#" class="btn btn-outline-secondary">Edycja</a>
+      </tr>
+{% endfor %}
+  </tbody>
+</table>
 
-  </div>
-</div>
-    {% endfor %}
-
-    </div>
 
 {% else %}
 <div class="row justify-content-md-center">
@@ -42,3 +44,9 @@
  </div>
 {% endif %}
 {% endblock %}
+
+
+
+
+
+

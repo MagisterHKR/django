@@ -3,6 +3,8 @@ from django.shortcuts import get_object_or_404, render
 from django.http import  HttpResponse
 
 from django.views.generic import ListView,DetailView,CreateView,UpdateView,DeleteView
+
+from logi.models import Logi
 from .models import Car
 from forms.forms import AddCar
 from django.urls import reverse
@@ -24,6 +26,7 @@ def add_car(request):
     if request.method == "POST":
         form = AddCar(request.POST)
         if form.is_valid():
+
             form.save()
             return HttpResponse("Dodano Samochód")
     else:
@@ -70,6 +73,7 @@ class CarUpdateView(UpdateView):
     template_name = 'cars/car_update_form.html'
     def form_valid(self, form):
         model = form.save(commit=False)
+
         print(type(model))
         return super(CarUpdateView, self).form_valid(form)
 
