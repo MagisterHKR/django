@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import get_object_or_404, render, render_to_response
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
@@ -16,10 +17,26 @@ from logi.models import Logi
 
 class RaportsListView(ListView):
     template_name = 'lease/raport_list.html'
+    model = Raport
+    context_object_name = "raport_list"
+    paginate_by = 12
 
-    def get_queryset(self):
-        return Raport.objects.all().order_by('-time')
+    def get_context_data(self, **kwargs):
+        context = super(RaportsListView, self).get_context_data(**kwargs)
+        car_list = Raport.objects.all().order_by('-time')
+        paginator = Paginator(car_list, self.paginate_by)
 
+        page = self.request.GET.get('page')
+
+        try:
+            file_exams = paginator.page(page)
+        except PageNotAnInteger:
+            file_exams = paginator.page(1)
+        except EmptyPage:
+            file_exams = paginator.page(paginator.num_pages)
+
+        context['raport_list'] = file_exams
+        return context
 
 class RaportCreateView(CreateView):
     model = Raport

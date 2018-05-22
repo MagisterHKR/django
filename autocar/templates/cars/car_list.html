@@ -4,7 +4,7 @@
 
 
 {% block main %}
-  <div class="row justify-content-md-center">
+  <div class="row justify-content-md-center" style="height: 700px;">
     {% for car in car_list %}
 	    <div class="col-sm-4 text-center mb-3">
             {% if car.checked == True %}
@@ -22,4 +22,30 @@
     </div>
     {% endfor %}
         </div>
+{% endblock %}
+
+{% block pagination %}
+    {% if is_paginated %}
+<div class="row justify-content-md-center">
+        <div class="btn-group">
+
+{% if page_obj.has_previous %}
+
+<a class="btn btn-secondary" href="?page={{ page_obj.previous_page_number }}"><-</a>
+{% else %}
+<a class="btn btn-secondary disabled" href="##"><-</a>
+{% endif %}
+
+       <div class="btn btn-secondary disabled"> Strona {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}</div>
+
+{% if page_obj.has_next %}
+
+<a class="btn btn-secondary" href="?page={{ page_obj.next_page_number }}">-></a>
+{% else %}
+    <a class="btn btn-secondary disabled" href="##">-></a>
+{% endif %}
+        </div>
+        </div>
+{% endif %}
+
 {% endblock %}

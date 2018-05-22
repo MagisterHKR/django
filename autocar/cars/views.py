@@ -1,6 +1,7 @@
 from django import forms
 from django.shortcuts import get_object_or_404, render
 from django.http import  HttpResponse
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 from django.views.generic import ListView,DetailView,CreateView,UpdateView,DeleteView
 
@@ -38,9 +39,27 @@ def add_car(request):
 #generyczne
 class CarListView(ListView):
     template_name = 'cars/car_list.html'
+    model = Car
+    context_object_name = "car_list"
+    paginate_by = 6
 
-    def get_queryset(self):
-        return Car.objects.all()
+    def get_context_data(self, **kwargs):
+        context = super(CarListView, self).get_context_data(**kwargs)
+        car_list = Car.objects.all()
+        paginator = Paginator(car_list, self.paginate_by)
+
+        page = self.request.GET.get('page')
+
+        try:
+            file_exams = paginator.page(page)
+        except PageNotAnInteger:
+            file_exams = paginator.page(1)
+        except EmptyPage:
+            file_exams = paginator.page(paginator.num_pages)
+
+        context['car_list'] = file_exams
+        return context
+
 
 
 class CarDetailView(DetailView):

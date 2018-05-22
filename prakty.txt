@@ -52,3 +52,11 @@ Dodanie wiêkszej funkcjonalnoœci do Aplikacji mobilnej.
 Stworzenie Raportów oraz kontrolerów Aplikacji.
 Poprawienie istniej¹cych widoków i dodanie nowych.
 Zastosowanie w projekcie widoków generycznych.
+
+21.05
+
+
+
+22.05
+
+Wymiana matrycy oraz klawiatury w laptopie.

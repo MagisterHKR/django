@@ -21,5 +21,6 @@ class user_register(forms.ModelForm):
     class Meta:
         model = User
         fields=()
-    
+
+
 
