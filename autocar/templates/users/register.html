@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title_name %}<h1>Rejestracja</h1>{% endblock %}
+
+{% block main %}
+<div class="row justify-content-md-center">
+{% if request.user.is_authenticated %}
+
+  <div class="card text-white bg-warning mb-3">
+  <div class="card-header">Status</div>
+  <div class="card-body">
+    <h5 class="card-title">Jesteś już zalogowany</h5>
+
+  </div>
+ </div>
+{% else %}
+<form action="/profil/register/" method="post" class="post-form">{% csrf_token %}
+
+    <div class="form-control">
+        <div class="form-row">
+
+    <div class="form-group col-md-6">
+      <label for="username">Użytkownik:</label>
+      <input type="text" class="form-control" id="username" name="username" >
+    </div>
+    <div class="form-group col-md-6">
+      <label for="password">Hasło:</label>
+      <input type="password" class="form-control" id="password" name="password" >
+    </div>
+
+
+  <div class="form-group col-md-6">
+    <label for="first_name">Imię:</label>
+    <input type="text" class="form-control" id="first_name" name="first_name" maxlength="30">
+  </div>
+  <div class="form-group col-md-6">
+    <label for="last_name">Nazwisko:</label>
+    <input type="text" class="form-control" id="last_name" name="last_name" maxlength="150">
+  </div>
+    <div class="form-group col-md-6">
+    <label for="email">E-mail:</label>
+    <input type="email" class="form-control" id="email" name="email">
+
+</div>
+            {{ form.captcha }}
+</div>
+        <input class="btn btn-outline-secondary" value="Zarejestruj" type="submit">
+        <span class="btn bg-danger text-white float-right">{{ info }}</span>
+    </form>
+
+{% endif %}
+
+
+<script src='https://www.google.com/recaptcha/api.js'></script>
+{% endblock %}

@@ -54,9 +54,12 @@ Poprawienie istniej¹cych widoków i dodanie nowych.
 Zastosowanie w projekcie widoków generycznych.
 
 21.05
-
-
+Rozmowa na temat narzêdzi do tworzenia API
+Rozmowa na temat recaptchy oraz tokenu autoryzacyjnego
+Zarabianie kabli do szafy
 
 22.05
 
+Zarabianie szafy
 Wymiana matrycy oraz klawiatury w laptopie.
+Dodanie paginacji i poprawienie wygl¹du w Aplikacji mobilnej

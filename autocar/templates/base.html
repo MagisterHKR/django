@@ -8,6 +8,8 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    {% block head %}
+    {% endblock %}
 </head>
 <body>
 <section id='nav' class='container'>
@@ -33,7 +35,7 @@
   <a href="{% url 'logout' %}" class="btn btn-secondary">Wyloguj</a>
             {% else %}
   <a href="{% url 'login' %}" class="btn btn-secondary">Zaloguj</a>
-   <button type="button" class="btn btn-secondary">Zarejestruj</button>
+   <a href="{% url 'register' %}" class="btn btn-secondary">Rejestracja</a>
             {% endif %}
 </div>
 </div>

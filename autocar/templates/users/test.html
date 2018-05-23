@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title_name %}<h1>Zaloguj się</h1>{% endblock %}
-
+{% block head %}{% endblock %}
 {% block main %}
 <div class="row justify-content-md-center">
 {% if request.user.is_authenticated %}
@@ -14,23 +14,14 @@
   </div>
  </div>
 {% else %}
-<form action="/profil/login/" method="post" class="post-form">{% csrf_token %}
+<form action="/profil/test/" method="post" class="post-form">{% csrf_token %}
+    {{ form.as_p }}
 
-    <div class="form-control">
-    <label for="username">Użytkownik:</label>
-
-        <input id="username" maxlength="20" required="" name="username" type="text" class="form-control">
-
-    <label for="password">Hasło:</label>
-
-        <input id="password" maxlength="20" required="" name="password" type="password" class="form-control">
-
-
-
-        <br>
         <input class="btn btn-outline-secondary" value="Zaloguj" type="submit">
 
-    </div></form>
+   </form>
+
+<script src='https://www.google.com/recaptcha/api.js'></script>
     </div>
 {% endif %}
 {% endblock %}

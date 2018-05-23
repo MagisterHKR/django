@@ -23,9 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'umz5x!$^$sq3cm4u*zy#_rzlfr80zct=vgoucj((eq%8u^3fhq'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-RECAPTCHA_PUBLIC_KEY = '6LdTp1oUAAAAAGVJudcVjAk93ux-Ihqx1VcHZvzo'
-RECAPTCHA_SECRET_KEY = '6LdTp1oUAAAAAK9-mqtbtSqjMFZyyI9RSd3s5lkd'
-NOCAPTCHA = True
+
 
 
 
@@ -47,6 +45,7 @@ INSTALLED_APPS = [
     'lease.apps.LeaseConfig',
     'users.apps.UsersConfig',
     'logi.apps.LogiConfig',
+    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +128,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+RECAPTCHA_PRIVATE_KEY = '6LdTp1oUAAAAAK9-mqtbtSqjMFZyyI9RSd3s5lkd'
+RECAPTCHA_PUBLIC_KEY = '6LdTp1oUAAAAAGVJudcVjAk93ux-Ihqx1VcHZvzo'
+NOCAPTCHA = True
