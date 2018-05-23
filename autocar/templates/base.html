@@ -8,18 +8,22 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <style>
+         .card,.list-group-item,.form-control{background-color: #fff6;}
+    </style>
     {% block head %}
     {% endblock %}
 </head>
-<body>
-<section id='nav' class='container'>
+<body style="background-color: #505050;">
+<section id='nav' class='container' style="padding: 20px;color: white;font-family: initial;background: #ffffff1a;">
 	<div class='row'>
 	<div class="col">
 		<h1>Wypożyczalnia</h1>
 	</div>
-	<div class="col-8 text-right">
+    <div class="col text-right">
     {% if request.user.is_staff %}
     <!-- Admin -->
+        <div class="col text-right">
         <div class="btn-group" role="group">
 
             <a href="{% url 'list_profil' %}" class="btn btn-danger">Klienci</a>
@@ -27,7 +31,9 @@
             <a href="{% url 'raport_list' %}" class="btn btn-danger">Raporty</a>
             <a href="{% url 'logi' %}" class="btn btn-danger">Logi</a>
         </div>
+        </div>
     {% endif %}
+    	<div class="col text-right">
 		<div class="btn-group" role="group">
         <a href="{% url 'car_list' %}" class="btn btn-secondary">Główna</a>
             {% if request.user.is_authenticated %}
@@ -37,14 +43,16 @@
   <a href="{% url 'login' %}" class="btn btn-secondary">Zaloguj</a>
    <a href="{% url 'register' %}" class="btn btn-secondary">Rejestracja</a>
             {% endif %}
+        </div>
 </div>
 </div>
+    </div>
   </div>
 </div>
 	</div>
 </section>
 
-<main id='container' class='container'>
+<main id='container' class='container'  style="background: #ffffffb3;border-radius: 0px 0px 30px 30px;padding: 30px;">
 	<div class="row justify-content-md-center">
     <div class="col-md-auto">
       {% block title_name %}<h1>Title</h1> {% endblock%}

@@ -6,14 +6,12 @@
 
  <div class="row justify-content-md-center">
 
-{% if car.checked == True %}
-<div class="car checked">
-{% else %}
-<div class="car">
-{% endif %}
 
-  <img class="card-img-top img-fluid" src="{{car.photo}}" alt="Brak zdjęcia">
-  <div class="card-body">
+<div class="card" style="width: 700px;">
+
+
+  <img class="card-img-top img-fluid" src="{{car.photo}}" alt="Brak zdjęcia" style="height: 400px;">
+  <div class="card-body" style="background: #0000002e;color: white;">
     <h4 class="card-title">{{car.mark}}</h4>
     <h6 class="card-subtitle text-muted">{{car.model}}</h6>
       <br>
@@ -34,10 +32,13 @@
     <a href="{% url 'car_list' %}" class="btn btn-outline-info">Główna</a>
   {% if car.checked == False %}
     <input type="button" class="btn btn-primary" data-toggle="modal" data-target="#potwierdzenie" value="Wypożycz">
+  {% else %}
+      <div class="btn bg-danger float-right">Wypożyczony</div>
   {% endif %}
   {% if request.user.is_staff %}
       <a href="{% url 'car_update' car.id 'update' %}" class="btn btn-warning">Edytuj</a>
   {% endif %}
+
   </div>
 </div>
 {% endblock %}

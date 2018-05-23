@@ -63,3 +63,9 @@ Zarabianie kabli do szafy
 Zarabianie szafy
 Wymiana matrycy oraz klawiatury w laptopie.
 Dodanie paginacji i poprawienie wygl¹du w Aplikacji mobilnej
+
+23.05
+
+Utworzenie formularza rejestracji z wbudowan¹ captcha
+Tworzenie Backup windows XP na pile.
+Rozmowa na temat pr¹du elektrycznego.

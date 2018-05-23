@@ -8,9 +8,9 @@
     {% for car in car_list %}
 	    <div class="col-sm-4 text-center mb-3">
             {% if car.checked == True %}
-            <div class="card border-danger bg-danger">
+            <div class="card border-danger bg-danger" style="border-radius: 5.25rem !important;">
             {% else %}
-            <div class="card">
+            <div class="card" style="border-radius: 5.25rem !important;">
             {% endif %}
                 <img class="card-img-top" height="250" src="{{car.photo}}" alt="Obrazek w karcie">
                 <div class="card-body">

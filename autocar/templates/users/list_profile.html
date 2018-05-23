@@ -25,7 +25,7 @@
     <td>{{pk.first_name}}</td>
     <td>{{pk.last_name}}</td>
     <td>{{pk.client.group}}</td>
-    <td> <a href="#" class="btn btn-outline-secondary">Pokaż profil</a></td>
+    <td> <a href="{% url 'profil_id' pk.id %}" class="btn btn-outline-secondary">Pokaż profil</a></td>
 
       </tr>
 {% endfor %}

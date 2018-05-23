@@ -131,3 +131,11 @@ STATIC_URL = '/static/'
 RECAPTCHA_PRIVATE_KEY = '6LdTp1oUAAAAAK9-mqtbtSqjMFZyyI9RSd3s5lkd'
 RECAPTCHA_PUBLIC_KEY = '6LdTp1oUAAAAAGVJudcVjAk93ux-Ihqx1VcHZvzo'
 NOCAPTCHA = True
+
+DEFAULT_EMAIL = 'django.spammer@gmail.com'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'django.spammer@gmail.com'
+EMAIL_HOST_PASSWORD = 'zaq1@WSX'
+EMAIL_USE_TLS = True
