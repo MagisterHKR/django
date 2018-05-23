@@ -19,9 +19,9 @@
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">Marka: {{car.mark}}</li>
-    <li class="list-group-item">Skrzynia: {{car.gearbox}}</li>
-    <li class="list-group-item">Paliwo: {{car.fuel}}</li>
-    <li class="list-group-item">Typ: {{car.type}}</li>
+    <li class="list-group-item">Skrzynia: {{car.get_gearbox_display}}</li>
+    <li class="list-group-item">Paliwo: {{car.get_fuel_display}}</li>
+    <li class="list-group-item">Typ: {{car.get_type_display}}</li>
     <li class="list-group-item">
         <div class="input-group mb-3"><div class="input-group-prepend"> <span class="input-group-text">PLN</span></div> <span class="form-control">{{car.charge}}</span><div class="input-group-append"> <span class="input-group-text">,00</span></div></div>
 

@@ -37,5 +37,5 @@ class profil_register(forms.ModelForm):
 
 
 
-def send()
+def send():
     send_mail('Tak', 'NIE', 'django.spammer@gmail.com', ['django.spammer@gmail.com'])

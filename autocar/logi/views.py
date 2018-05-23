@@ -15,7 +15,7 @@ class LogsListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(LogsListView, self).get_context_data(**kwargs)
-        car_list = Logi.objects.all()
+        car_list = Logi.objects.all().order_by('-date')
         paginator = Paginator(car_list, self.paginate_by)
 
         page = self.request.GET.get('page')
