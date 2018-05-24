@@ -9,7 +9,7 @@
   <thead>
     <tr>
       <th>#</th>
-    {% if request.user.is_staf %}
+    {% if request.user.is_staff %}
        <th>Login:</th>
    {% endif %}
       <th>Nick:</th>
@@ -25,8 +25,8 @@
       <tr>
     <th scope="row">#</th>
 
-   {% if request.user.is_staf %}
-       <td>{{ pk.client.username }}</td>
+   {% if request.user.is_staff %}
+       <td>{{ pk.username }}</td>
    {% endif %}
 
     <td>{{ pk.client.nickname }}</td>
