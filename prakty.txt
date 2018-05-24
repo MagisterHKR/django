@@ -64,8 +64,14 @@ Zarabianie szafy
 Wymiana matrycy oraz klawiatury w laptopie.
 Dodanie paginacji i poprawienie wygl¹du w Aplikacji mobilnej
 
+
 23.05
 
-Utworzenie formularza rejestracji z wbudowan¹ captcha
-Tworzenie Backup windows XP na pile.
-Rozmowa na temat pr¹du elektrycznego.
+Tworzenie Backup'a Windows'a xD na pile.
+Stworzenie formularza rejestracji z captch¹.
+Poprawienie estetyki aplikacji webowej
+
+24.05
+
+Blokowanie pendrive na pile
+Testowanie oprogramowania Velo

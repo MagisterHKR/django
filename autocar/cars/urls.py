@@ -11,7 +11,7 @@ urlpatterns = [
     path('<int:car_id>/', views.CarDetailView.as_view(), name='car_detail'),
     # ex /car/add
     path('create/', views.CarCreateView.as_view(), name='car_create'),
-    path('<int:car_id>/up<slug:slug>', views.CarUpdateView.as_view(), name='car_update'),
+    path('<int:car_id>/<slug:slug>', views.CarUpdateView.as_view(), name='car_update'),
 
 
 

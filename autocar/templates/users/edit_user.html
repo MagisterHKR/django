@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title_name %}<h1>Edycja profilu</h1>{% endblock %}
+
+{% block main %}
+<div class="row justify-content-md-center">
+{% if request.user.is_authenticated %}
+<form  method="post" class="post-form">{% csrf_token %}
+<input name="user_id" value="{{ request.user.id }}" hidden/>
+    <div class="form-control">
+        <div class="form-row">
+
+    <div class="form-group col-md-6">
+      <label for="username">Login:</label>
+      <input type="text" class="form-control" id="username" name="username" disabled  value="{{ request.user.username }}">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="nickname">Nazwa wyświetlana:</label>
+      <input type="text" class="form-control" id="nickname" name="nickname" value="{{ request.user.client.nickname }}" >
+    </div>
+    <div class="form-group col-md-6">
+      <label for="password">Hasło:</label>
+      <input type="password" class="form-control" id="password" name="password" value="">
+    </div>
+     <div class="form-group col-md-6">
+      <label for="password2">Powtórz Hasło:</label>
+      <input type="password" class="form-control" id="password2" name="password2" value="">
+    </div>
+
+
+  <div class="form-group col-md-6">
+    <label for="first_name">Imię:</label>
+    <input type="text" class="form-control" id="first_name" name="first_name" maxlength="30" value="{{ request.user.first_name }}">
+  </div>
+  <div class="form-group col-md-6">
+    <label for="last_name">Nazwisko:</label>
+    <input type="text" class="form-control" id="last_name" name="last_name" maxlength="150" value="{{ request.user.last_name}}">
+  </div>
+    <div class="form-group col-md-6">
+    <label for="email">E-mail:</label>
+    <input type="email" class="form-control" id="email" name="email" value="{{ request.user.email}}">
+    </div>
+    <div class="form-group col-md-6">
+        <label for="tel">Telefon:</label>
+        <input type="text" class="form-control" id="tel" name="tel" maxlength="9" value="{{ request.user.client.tel}}">
+    </div>
+     <div class="form-group col-md-6">
+        <label for="avatar">Avatar:</label>
+        <input type="text" class="form-control" id="avatar" name="avatar" maxlength="11" value="{{ request.user.client.avatar}}">
+    </div>
+
+
+
+</div>
+        <input class="btn btn-outline-secondary" value="Zapisz" type="submit">
+<span class="btn bg-danger text-white float-right">{{ info }}</span>
+    </form>
+
+{% endif %}
+
+ </div>
+
+
+
+{% endblock %}

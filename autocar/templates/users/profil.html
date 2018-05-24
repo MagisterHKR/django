@@ -20,9 +20,11 @@
     <li class="list-group-item">Pesel: {{user.client.pesel}}</li>
     <li class="list-group-item">Telefon: {{user.client.tel}}</li>
     <li class="list-group-item">Członek: {{user.client.group}}</li>
+    <li class="list-group-item">Ostatnio na stronie: {{user.last_login|date:'H:m:s  Y-m-d '}}</li>
+    <li class="list-group-item">Rejestracja: {{user.date_joined|date:'Y-m-d'}}</li>
   </ul>
   <div class="card-body">
-    <a href="#" class="btn btn-outline-secondary">Edycja</a>
+    <a href="{% url 'edit_profil' %}" class="btn btn-outline-secondary">Edycja</a>
   </div>
 
 
@@ -41,8 +43,6 @@
 
 {% endif %}
 {% endblock %}
-
-
 
 
 

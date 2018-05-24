@@ -78,6 +78,7 @@ class CarCreateView(CreateView):
     model = Car
     fields = '__all__'
 
+
     def form_valid(self, form):
         model = form.save(commit=False)
         print(type(model))

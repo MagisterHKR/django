@@ -4,11 +4,66 @@
 
 {% block main %}
 	<div class="row justify-content-md-center">
-<form method="POST" class="post-form">{% csrf_token %}
+    <div class="col-6"><img class="col" src="{{ car.photo }}"/></div>
 
-{{form.as_p}}
+   <div class="col-6">
+<form method="POST" class="post-form">{% csrf_token %}
+<input type="hidden" name="car_id" value="{{ car.id }}/>"
+<p><label for="id_model">Model:</label> <input name="model" maxlength="20" required="" id="id_model" type="text" class="form-control" value="{{ car.model }}"></p>
+<p><label for="id_number_plate">Rejestracja:</label> <input name="number_plate" maxlength="20" required="" id="id_number_plate" type="text" class="form-control" value="{{ car.number_plate }}"></p>
+<p><label for="id_mark">Marka:</label> <input name="mark" maxlength="20" required="" id="id_mark" type="text" class="form-control"  value="{{ car.mark }}"></p>
+<p><label for="id_gearbox">Skrzynia biegów:</label> <select name="gearbox" required="" id="id_gearbox" class="form-control" >
+  <option  value="{{ car.gearbox }}" selected="">{{ car.get_gearbox_display }}</option>
+
+  <option value="1">Manualna</option>
+
+  <option value="2">Automatyczna</option>
+
+  <option value="3">Pół Automatyczna</option>
+
+</select></p>
+<p><label for="id_fuel">Paliwo:</label> <select name="fuel" required="" id="id_fuel" class="form-control">
+  <option value="{{ car.fuel }}" selected="">{{ car.get_fuel_display }}</option>
+
+  <option value="1">Diesel</option>
+
+  <option value="2">Benzyna</option>
+
+  <option value="3">Benzyna + LPG</option>
+
+</select></p>
+<p><label for="id_type">Typ:</label> <select name="type" required="" id="id_type" class="form-control">
+  <option value="{{ car.type }}" selected="">{{ car.get_type_display }}</option>
+
+  <option value="1">Hatchback</option>
+
+  <option value="2">Sedan</option>
+
+  <option value="3">Kombi</option>
+
+  <option value="4">Sportowe | Coupe</option>
+
+  <option value="5">Kabriolet</option>
+
+  <option value="6">Limuzyna</option>
+
+  <option value="7">Pickup</option>
+
+  <option value="8">Terenowe</option>
+
+  <option value="9">Van | Minibus</option>
+
+</select></p>
+<p><label for="id_description">Opis:</label> <input name="description" value="Brak" maxlength="60" required="" id="id_description" type="text" class="form-control" value="{{ car.description }}"></p>
+<p><label for="id_charge">Koszt:</label> <div class="input-group mb-3"><div class="input-group-prepend"> <span class="input-group-text">PLN</span></div> <input name="charge" maxlength="20" required="" id="id_charge" type="text" class="form-control"  value="{{ car.charge }}"><div class="input-group-append"> <span class="input-group-text">,00</span></div></div></p>
+<p><label for="id_photo">Zdjęcie:</label> <input name="photo" maxlength="200" required="" id="id_photo" type="url" class="form-control"  value="{{ car.photo }}"></p>
+<p><label for="id_checked">Wypożyczony:</label> <input name="checked" id="id_checked" type="checkbox" value="{{ car.checked }}" ></p>
+
+
         <button type="submit" class="save btn btn-default">Aktualizuj</button>
     </form>
+   </div>
+
     </div>
 {% endblock %}
 

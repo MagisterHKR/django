@@ -30,7 +30,7 @@ def reg_succ(request):
 
 def registration(request):
     form = user_register()
-    form2 = profil_register()
+
     if request.method == 'POST':
         form = user_register(request.POST)
 
@@ -52,9 +52,9 @@ def registration(request):
                 return render(request, 'users/register.html', {"info": info})
         else:
             info = 'Uzupełnij wszystkie pola'
-            return render(request, 'users/register.html', {'form': form,'form2':form2,"info": info})
+            return render(request, 'users/register.html', {'form': form,"info": info})
     else:
-        return render(request, 'users/register.html', {'form': form,'form2':form2})
+        return render(request, 'users/register.html', {'form': form,})
 
 
 
@@ -87,3 +87,21 @@ def logged(request):
 def profil_id(request,user_id):
     user = User.objects.get(id=user_id)
     return render(request, 'users/profil.html',{'user':user})
+
+def edit_profile(request):
+    if request.method == 'POST':
+
+        user_id = request.POST['user_id']
+        user = User.objects.all().get(id=user_id)
+        user.client.nickname = request.POST['nickname']
+        user.first_name = request.POST['first_name']
+        user.last_name = request.POST['last_name']
+        user.email = request.POST['email']
+        user.client.tel = request.POST['tel']
+        user.client.avatar = request.POST['avatar']
+
+        user.save()
+        return render(request,'users/profil.html')
+
+    else:
+        return render(request,'users/edit_user.html')

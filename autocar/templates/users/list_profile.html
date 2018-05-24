@@ -9,6 +9,9 @@
   <thead>
     <tr>
       <th>#</th>
+    {% if request.user.is_staf %}
+       <th>Login:</th>
+   {% endif %}
       <th>Nick:</th>
       <th>Imię:</th>
       <th>Nazwisko:</th>
@@ -21,7 +24,12 @@
   {% for pk in user_list %}
       <tr>
     <th scope="row">#</th>
-    <td>{{ pk.username }}</td>
+
+   {% if request.user.is_staf %}
+       <td>{{ pk.client.username }}</td>
+   {% endif %}
+
+    <td>{{ pk.client.nickname }}</td>
     <td>{{pk.first_name}}</td>
     <td>{{pk.last_name}}</td>
     <td>{{pk.client.group}}</td>

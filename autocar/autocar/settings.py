@@ -127,6 +127,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 RECAPTCHA_PRIVATE_KEY = '6LdTp1oUAAAAAK9-mqtbtSqjMFZyyI9RSd3s5lkd'
 RECAPTCHA_PUBLIC_KEY = '6LdTp1oUAAAAAGVJudcVjAk93ux-Ihqx1VcHZvzo'
