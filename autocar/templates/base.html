@@ -24,24 +24,24 @@
     {% if request.user.is_staff %}
     <!-- Admin -->
         <div class="col text-right">
-        <div class="btn-group" role="group">
-
-            <a href="{% url 'list_profil' %}" class="btn btn-danger">Klienci</a>
-            <a href="{% url 'car_create' %}" class="btn btn-danger">Dodaj auto</a>
-            <a href="{% url 'raport_list' %}" class="btn btn-danger">Raporty</a>
-            <a href="{% url 'logi' %}" class="btn btn-danger">Logi</a>
+        <div class="col btn-group" role="group">
+            <a href="http://localhost:8000/admin/" class="btn btn-danger">Panel Admina</a>
+            <a href="{% url 'list_profil' %}" class="btn btn-danger col-4">Klienci</a>
+            <a href="{% url 'car_create' %}" class="btn btn-danger col-4">Dodaj auto</a>
+            <a href="{% url 'raport_list' %}" class="btn btn-danger col-4">Raporty</a>
+            <a href="{% url 'logi' %}" class="btn btn-danger col-4">Logi</a>
         </div>
         </div>
     {% endif %}
     	<div class="col text-right">
-		<div class="btn-group" role="group">
-        <a href="{% url 'car_list' %}" class="btn btn-secondary">Główna</a>
+		<div class="btn-group col" role="group">
+        <a href="{% url 'car_list' %}" class="btn btn-secondary col-6">Główna</a>
             {% if request.user.is_authenticated %}
-  <a href="{% url 'profil' %}" class="btn btn-secondary">Profil</a>
-  <a href="{% url 'logout' %}" class="btn btn-secondary">Wyloguj</a>
+  <a href="{% url 'profil' %}" class="btn btn-secondary col-6">Profil</a>
+  <a href="{% url 'logout' %}" class="btn btn-secondary col-6">Wyloguj</a>
             {% else %}
-  <a href="{% url 'login' %}" class="btn btn-secondary">Zaloguj</a>
-   <a href="{% url 'register' %}" class="btn btn-secondary">Rejestracja</a>
+  <a href="{% url 'login' %}" class="btn btn-secondary col-6">Zaloguj</a>
+   <a href="{% url 'register' %}" class="btn btn-secondary col-6">Rejestracja</a>
             {% endif %}
         </div>
 </div>

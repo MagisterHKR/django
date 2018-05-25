@@ -23,13 +23,14 @@ class Lease(models.Model):
 class Raport(models.Model):
     client = models.ForeignKey(Client,on_delete=models.CASCADE)
     car = models.ForeignKey(Car,on_delete=models.CASCADE)
-    data = models.DateField(auto_now=True)
-    time = models.TimeField(auto_now=True)
+    data = models.DateField(auto_now_add=True)
+    time = models.TimeField(auto_now_add=True)
     status = models.CharField('Status',max_length=20,default='W trakcie rozpatrywania')
     worker_accept = models.CharField('Pracownik przyjmujący',max_length=20,default='')
     worker = models.CharField('Pracownik wydający', max_length=20, default='')
     worker_reject = models.CharField('Pracownik odbierający',max_length=20,default='')
     active = models.BooleanField('Aktywny',default=True)
+    deleted = models.BooleanField('Usuniety',default=False)
     class Meta:
         verbose_name = "Raport"
         verbose_name_plural = "Raporty"

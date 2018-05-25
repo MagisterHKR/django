@@ -12,7 +12,7 @@ from django.contrib.auth.models import User
 
 
 
-from forms.forms import user_register, profil_register
+from forms.forms import user_register, profil_register, FormWithCaptcha
 from users.models import Client
 
 
@@ -32,24 +32,40 @@ def registration(request):
     form = user_register()
 
     if request.method == 'POST':
-        form = user_register(request.POST)
 
+        form = FormWithCaptcha(request.POST)
         if form.is_valid():
 
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
+            username = request.POST['username']
+            password = request.POST['pass1']
+            password2 = request.POST['pass2']
+            email = request.POST['email']
+            f_name =request.POST['first_name']
+            l_name = request.POST['last_name']
+
             if "admin" in username.lower():
                 info = 'Użytkownik nie może mieć prefiksu admin'
-                return render(request, 'users/register.html', {"info": info})
+
+                return render(request, 'users/register.html', {'form': form,"info": info})
 
             user = auth.authenticate(username=username, password=password)
             if user is None:
-                form.save()
+                if password == password2:
+                    user = User.objects.create_user(username,email,password)
+                    user.last_name = l_name
+                    user.first_name = f_name
+                    client = Client(user=user,nickname=username)
+                    client.save()
+                    user.save()
+                    return HttpResponseRedirect('succes')
+                else:
+                    info = 'Hasła się różnią'
+                    return render(request, 'users/register.html',{'form': form,"info": info})
 
-                return HttpResponseRedirect('succes')
+
             else:
                 info = 'Użytkownik już istnieje'
-                return render(request, 'users/register.html', {"info": info})
+                return render(request, 'users/register.html', {'form': form,"info": info})
         else:
             info = 'Uzupełnij wszystkie pola'
             return render(request, 'users/register.html', {'form': form,"info": info})
@@ -88,20 +104,22 @@ def profil_id(request,user_id):
     user = User.objects.get(id=user_id)
     return render(request, 'users/profil.html',{'user':user})
 
-def edit_profile(request):
-    if request.method == 'POST':
+def edit_profile(request,user_id):
 
+    if request.method == 'POST':
         user_id = request.POST['user_id']
         user = User.objects.all().get(id=user_id)
+
         user.client.nickname = request.POST['nickname']
         user.first_name = request.POST['first_name']
         user.last_name = request.POST['last_name']
         user.email = request.POST['email']
         user.client.tel = request.POST['tel']
+        user.client.pesel = request.POST['pesel']
         user.client.avatar = request.POST['avatar']
-
         user.save()
         return render(request,'users/profil.html')
 
     else:
-        return render(request,'users/edit_user.html')
+        user = User.objects.all().get(id=user_id)
+        return render(request,'users/edit_user.html',{'user':user})

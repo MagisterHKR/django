@@ -117,3 +117,13 @@ def CarDone(request,raport_id):
     logi.save()
 
     return render(request, 'lease/accept.html',{"status": raport.status})
+
+def ReportDelete(request,raport_id):
+    raport = Raport.objects.get(id=raport_id)
+    raport.deleted = True
+    raport.status = 'Usunięty'
+    raport.save()
+    logi = Logi(user=request.user, action="Usunięcie raportu",raport=raport.id,car=raport.car.id)
+    logi.save()
+
+    return render(request, 'lease/accept.html',{'status':raport.status})

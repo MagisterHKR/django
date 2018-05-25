@@ -17,29 +17,40 @@
   </thead>
   <tbody>
   {% for raport in raport_list %}
-      {% if raport.active == False %}<tr class="bg-secondary">
-  {% else %}
-          <tr>
-  {% endif %}
-    <th scope="row">#</th>
-    <td>{{ raport.client.user.first_name }} {{ raport.client.user.last_name }}</td>
-    <td>{{ raport.car.model }} {{ raport.car.mark }} {{ raport.car.number_plate }}</td>
-    <td>{{ raport.data }}: {{ raport.time }}</td>
-      {% if raport.status == "Wydany" %}
-      <td><span class="btn bg-success">{{ raport.status }}</span></td>
-       {% elif raport.status == "Gotowy do odbioru" %}
-        <td><span class="btn bg-info">{{ raport.status }}</span></td>
-      {% elif raport.status == "Odrzucony" %}
-        <td><span class="btn bg-danger">{{ raport.status }}</span></td>
-      {% else %}
-        <td><span class="btn bg-warning">{{ raport.status }}</span></td>
-      {% endif %}
 
 
-     {% if request.user.client.group == "Pracownik"  or request.user.client.group == "Admin" %}
-    <td><a href="{% url 'raport_detail' raport.id %}" type="button" class="btn btn-info">Szczegóły</a></td>
-     {% endif %}
-      </tr>
+              {% if raport.active == False %}
+                  <tr class="bg-secondary">
+              {% else %}
+                  <tr>
+                {% endif %}
+            <th scope="row">#</th>
+            <td>{{ raport.client.user.first_name }} {{ raport.client.user.last_name }}</td>
+            <td>{{ raport.car.model }} {{ raport.car.mark }} {{ raport.car.number_plate }}</td>
+            <td>{{ raport.data }}: {{ raport.time }}</td>
+              {% if raport.status == "Wydany" %}
+              <td><span class="btn bg-success">{{ raport.status }}</span></td>
+               {% elif raport.status == "Gotowy do odbioru" %}
+                <td><span class="btn bg-info">{{ raport.status }}</span></td>
+              {% elif raport.status == "Odrzucony" %}
+                <td><span class="btn bg-danger">{{ raport.status }}</span></td>
+              {% else %}
+                <td><span class="btn bg-warning">{{ raport.status }}</span></td>
+              {% endif %}
+
+
+             {% if request.user.client.group == "Pracownik"  or request.user.client.group == "Admin" %}
+                 {% if raport.deleted == False %}
+                    <td><a href="{% url 'raport_detail' raport.id %}" type="button" class="btn btn-info">Szczegóły</a></td>
+                 {% else %}
+                     {% if request.user.client.group == 'Admin' %}
+                        <td><a href="{% url 'raport_detail' raport.id %}" type="button" class="btn btn-danger">Usunięty</a></td>
+
+                     {% endif %}
+                 {% endif %}
+            {% endif %}
+              </tr>
+
 {% endfor %}
   </tbody>
 </table>

@@ -8,7 +8,7 @@ class Logi(models.Model):
     date = models.DateTimeField(auto_now=True)
     action = models.CharField('Akcja:',max_length=30)
     raport = models.IntegerField('ID raportu')
-    car = models.IntegerField('ID auta')
+    car = models.IntegerField('ID auta',default='')
     addition = models.CharField('Dodatkowe',max_length=30,default='')
 
     class Meta:

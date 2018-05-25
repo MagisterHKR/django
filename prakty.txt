@@ -3,16 +3,14 @@ Szkolenie BHP.
 Przygotowanie stanowiska pracy.
 Instalacja i konfiguracja systemu Linux Server.
 
-
 8.05
-Nauka podstawowych pojêæ zwi¹zanych z sieciami.
+Nauka podstawowych pojêæ z sieci komputerowej.
 Rozpoczêcie prac nad Aplikacj¹ wypo¿yczalni pojazdów.
-Testowanie karty graficznej.
-
+Testowanie karty graficznej w celu zdiagnozowania problemu z komputerem.
 
 9.05
 Instalacja i konfiguracja oprogramowania na komputerze klienta.
-Tworzenie klona dysku HDD oraz SSD.
+Tworzenie kopii zapasowych.
 Tworzenie modeli,relacji,templatek oraz widoków aplikacji.
 
 10.05
@@ -23,29 +21,27 @@ Diagnostyka uszkodzonej jednostki centralnej.
 11.05
 Przeprowadzenie testów tworzonej aplikacji.
 Eliminacja b³êdów aplikacji.
-Instalacja i konfiguracja systemu Windows oraz przeprowadzenie aktualizacji sterowników.
-
-
+Instalacja systemu operacyjnego, przeprowadzenie aktualizacji sterowników oraz zainstalowanie wymaganego oprogramowania.
 
 14.05
 Inwentaryzacja sprzêtów komputerowych w poszczególnych oddzia³ach na terenie zak³adu.
 Przepisanie aplikacji na nowo, wdra¿aj¹c wzorce projektowe.
 Tworzenie formularzy obs³uguj¹ce dodawanie danego pojazdu oraz u¿ytkownika.
 
-
 15.05
 Zamiana formatu z MBR na GPT na dysku m2
-Diagnostyka podzespo³ów, demonta¿ i wymiana.
+Diagnostyka jednostki centralnej, demonta¿ i wymiana karty graficznej oraz procesora.
 Poprawienie widoków i templatek projktu.
 
 16.05
-Diagnostyka i naprawa jednostki centralnej.
+Diagnostyka i naprawa komputera stacjonarnego, wymiana uk³adu ch³odzenia i na³o¿enie pasty termoprzewodz¹cej.
 Tworzenie formularza logowania u¿ytkownika.
 Inwentaryzacja pomieszczenia na terenie zak³³adu
 
 17.05
-Porz¹dki na urzdowanym stanowisku
+Porz¹dki na urzêdowanym stanowisku
 Tworzenie specjalnego okablowania(œwieczki) do specjalnego urz¹dzenia.
+Zaszywanie szafy sterowniczej.
 Dodanie wiêkszej funkcjonalnoœci do Aplikacji mobilnej.
 
 18.05
@@ -59,19 +55,17 @@ Rozmowa na temat recaptchy oraz tokenu autoryzacyjnego
 Zarabianie kabli do szafy
 
 22.05
-
 Zarabianie szafy
 Wymiana matrycy oraz klawiatury w laptopie.
 Dodanie paginacji i poprawienie wygl¹du w Aplikacji mobilnej
 
 
 23.05
-
-Tworzenie Backup'a Windows'a xD na pile.
+Tworzenie kopii zapasowej systemu operacyjnego z tabletu u¿ywanego do sterowania pi³ami.
 Stworzenie formularza rejestracji z captch¹.
 Poprawienie estetyki aplikacji webowej
 
 24.05
-
-Blokowanie pendrive na pile
+Blokowanie urz¹dzeñ peryferyjnych na tablecie
 Testowanie oprogramowania Velo
+Usprawnienie serwisu, dodanie edycji profilu uzytkownika.

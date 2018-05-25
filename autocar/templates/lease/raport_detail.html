@@ -47,6 +47,7 @@
      {% else %}
      <li class="list-group-item">Wypożyczony: Nie</li>
      {% endif %}
+    <li class="list-group-item"><a href="{% url 'car_detail' car.id %}" class="btn btn-info">Podgląd</a> </li>
 
   </ul>
 </div>
@@ -63,11 +64,15 @@
     <li class="list-group-item">Pesel: {{user.pesel}}</li>
     <li class="list-group-item">Telefon: {{user.tel}}</li>
     <li class="list-group-item">Członek: {{user.group}}</li>
+    <li class="list-group-item"><a href="{% url 'profil_id' user.user.id %}" class="btn btn-outline-secondary">Pokaż profil</a></li>
   </ul>
 
 
 </div>
   </div>
+    {% if raport.deleted == True %}
+            <input type="button" class=" col btn bg-danger m-3" value="Raport usunięty">
+            {% else %}
       <div class="row justify-content-md-center">
     {% if request.user.client.group == "Pracownik"  or request.user.client.group == "Admin" %}
 
@@ -87,9 +92,34 @@
 
       </div>
     {% if request.user.client.group == "Kierownik" or request.user.client.group == "Admin" %}
+
         <div class="row justify-content-md-center">
-            <a href="##" type="button" class=" col btn btn-danger m-3">Usuń report</a>
+
+            <input type="button" class=" col btn btn-danger m-3" data-toggle="modal" data-target="#potwierdzenie" value="Usuń raport">
+
         </div>
             {% endif %}
+    {% endif %}
 {% endblock %}
 
+{% block pop-up %}
+<div class="modal" id="potwierdzenie" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Usunięcie raportu</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Czy na pewno chcesz usunąć ten raport?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
+          <a href="{% url 'raport_delete' raport.id %}" type="button" class="btn btn-danger">Potwierdz</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
