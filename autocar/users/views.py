@@ -17,7 +17,8 @@ from users.models import Client
 
 
 def profil(request):
-
+    if request.user.client == None:
+        Client(user=request.user, nickname=request.user.username)
     return render(request, 'users/profil.html')
 
 def list_profil(request):
@@ -109,17 +110,19 @@ def edit_profile(request,user_id):
     if request.method == 'POST':
         user_id = request.POST['user_id']
         user = User.objects.all().get(id=user_id)
-
         user.client.nickname = request.POST['nickname']
         user.first_name = request.POST['first_name']
         user.last_name = request.POST['last_name']
         user.email = request.POST['email']
-        user.client.tel = request.POST['tel']
-        user.client.pesel = request.POST['pesel']
-        user.client.avatar = request.POST['avatar']
         user.save()
+        client = user.client
+        client.tel = request.POST['tel']
+        client.pesel = request.POST['pesel']
+        client.avatar = request.POST['avatar']
+        client.save()
         return render(request,'users/profil.html')
 
     else:
         user = User.objects.all().get(id=user_id)
+
         return render(request,'users/edit_user.html',{'user':user})

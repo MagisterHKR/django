@@ -25,6 +25,8 @@ SECRET_KEY = 'umz5x!$^$sq3cm4u*zy#_rzlfr80zct=vgoucj((eq%8u^3fhq'
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
+LOGIN_URL = 'login'
+
 
 
 DEBUG = True
@@ -46,6 +48,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'logi.apps.LogiConfig',
     'captcha',
+    'social_django',
 
 ]
 
@@ -62,6 +65,29 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'autocar.urls'
 
 
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.open_id.OpenIdAuth',
+    'social_core.backends.google.GoogleOpenId',
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.google.GoogleOAuth',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.yahoo.YahooOpenId',
+
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+SOCIAL_AUTH_PIPELINE = [
+    'social_core.pipeline.social_auth.social_details',
+    'social_core.pipeline.social_auth.social_uid',
+    'social_core.pipeline.social_auth.social_user',
+    'social_core.pipeline.user.get_username',
+    'social_core.pipeline.user.create_user',
+    'social_core.pipeline.social_auth.associate_user',
+    'social_core.pipeline.social_auth.load_extra_data',
+    'social_core.pipeline.user.user_details',
+    'social_core.pipeline.social_auth.associate_by_email',
+]
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -70,6 +96,8 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
@@ -136,4 +164,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 RECAPTCHA_PRIVATE_KEY = '6LdTp1oUAAAAAK9-mqtbtSqjMFZyyI9RSd3s5lkd'
 RECAPTCHA_PUBLIC_KEY = '6LdTp1oUAAAAAGVJudcVjAk93ux-Ihqx1VcHZvzo'
 NOCAPTCHA = True
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = 'profil'
 
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '54832561981-tp5u41d038umgci618jurkkdku9entdh.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'fPFb3nFjsSRInCicOB4JFkYY'

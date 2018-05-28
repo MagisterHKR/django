@@ -22,6 +22,7 @@ urlpatterns = [
     path('lease/', include('lease.urls')),
     path('profil/', include('users.urls')),
     path('logs/', include('logi.urls')),
+    path('social-auth/', include('social_django.urls', namespace='social'))
 
 
 
