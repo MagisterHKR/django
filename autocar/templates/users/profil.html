@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title_name %}<h1>{{user.client.nickname}}</h1>{% endblock %}
+{% block title_name %}<h1>{{user.first_name}} {{user.last_name}}</h1>{% endblock %}
 
 {% block main %}
 {% if request.user.is_authenticated %}

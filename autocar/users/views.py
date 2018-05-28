@@ -12,14 +12,16 @@ from django.contrib.auth.models import User
 
 
 
-from forms.forms import user_register, profil_register, FormWithCaptcha
+from forms.forms import user_register, FormWithCaptcha
 from users.models import Client
 
 
 def profil(request):
-    if request.user.client == None:
-        Client(user=request.user, nickname=request.user.username)
-    return render(request, 'users/profil.html')
+    if Client.objects.filter(nickname=request.user.username).first():
+        return render(request, 'users/profil.html')
+    else:
+        Client(user=request.user, nickname=request.user.username).save()
+        return render(request, 'users/profil.html')
 
 def list_profil(request):
     client = User.objects.all()

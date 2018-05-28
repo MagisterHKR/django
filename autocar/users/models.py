@@ -22,3 +22,8 @@ class Client(models.Model):
     def __str__(self):
         return self.nickname
 
+    def is_created(user):
+        if Client.objects.all().get(nickname=user):
+            return True
+        else:
+            return False
