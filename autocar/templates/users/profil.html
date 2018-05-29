@@ -7,7 +7,9 @@
  <div class="row justify-content-md-center">
 <div class="card col-3">
   <img class="card-img-top img-fluid rounded-circle" src="{{user.client.avatar}}" alt="Alternatywny opis obrazka">
-
+{% if info %}
+<div class="btn bg-danger text-white">{{ info }}</div>
+{% endif %}
 </div>
  <div class="card col-4">
    <div class="card-body">

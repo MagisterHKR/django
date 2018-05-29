@@ -145,18 +145,21 @@ def password_chnge(request):
         return render(request, 'users/edit_password.html')
 
 def create_password(request):
-
-    if request.method == 'POST':
-        pass1 = request.POST['pass1']
-        pass2 = request.POST['pass2']
-        if pass1 == pass2:
-            request.user.set_password(pass1)
-            info = 'Hasło utworzone.'
-            client = Client(user=request.user, nickname=request.user.username)
-            client.save()
-            return render(request, 'users/profil.html', {'info': info})
-        else:
-            info = "Hasła nie są zgodne."
-            return render(request, 'users/create_password.html', {'info': info})
+    if request.user.password is not None:
+        info = 'Zalogowano za pomocą Google.'
+        return render(request, 'users/profil.html', {'info': info})
     else:
-        return render(request, 'users/create_password.html')
+        if request.method == 'POST':
+            pass1 = request.POST['pass1']
+            pass2 = request.POST['pass2']
+            if pass1 == pass2:
+                request.user.set_password(pass1)
+                info = 'Hasło utworzone.'
+                client = Client(user=request.user, nickname=request.user.username)
+                client.save()
+                return render(request, 'users/profil.html', {'info': info})
+            else:
+                info = "Hasła nie są zgodne."
+                return render(request, 'users/create_password.html', {'info': info})
+        else:
+            return render(request, 'users/create_password.html')
