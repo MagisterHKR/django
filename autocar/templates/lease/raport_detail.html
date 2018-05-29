@@ -78,12 +78,13 @@
 
 
         {% if car.checked == False and raport.status == "W trakcie realizacji" %}
-        <a href="{% url 'raport_accept' raport.id %}" type="button" class=" col btn btn-success m-3">Potwierdz wypożyczenie</a>
-            <a href="{% url 'raport_car_reject' raport.id %}" type="button" class=" col btn btn-dark m-3">Odrzuć wyporzyczenie</a>
+        <input type="button" class=" col btn btn-success m-3" data-toggle="modal" data-target="#potwierdzenie2" value="Potwierdz wypożyczenie"/>
+            <input type="button" class=" col btn btn-dark m-3" data-toggle="modal" data-target="#potwierdzenie1" value="Odrzuć wyporzyczenie">
+
         {% endif %}
         {% if raport.status == "Gotowy do odbioru" %}
             <a href="{% url 'raport_car_accept' raport.id %}" type="button" class=" col btn btn-success m-3">Wydaj samochód</a>
-            <a href="{% url 'raport_car_reject' raport.id %}" type="button" class=" col btn btn-dark m-3">Odrzuć wyporzyczenie</a>
+
         {% elif raport.status == "Wydany" %}
             <a href="{% url 'raport_car_done' raport.id %}" type="button" class=" col btn btn-primary m-3">Odbierz samochód</a>
             {% endif %}
@@ -118,6 +119,44 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
           <a href="{% url 'raport_delete' raport.id %}" type="button" class="btn btn-danger">Potwierdz</a>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="modal" id="potwierdzenie1" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Odrzucenie</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Czy na pewno chcesz odrzucić?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
+          <a href="{% url 'raport_car_reject' raport.id %}" type="button" class="btn btn-dark">Potwierdz</a>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="modal" id="potwierdzenie2" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Potwierdzenie</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Czy na pewno zatwierdzasz wypozyczenie?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
+          <a href="{% url 'raport_accept' raport.id %}" type="button" class="btn btn-success">Potwierdz</a>
         </div>
       </div>
     </div>

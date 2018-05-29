@@ -17,11 +17,7 @@ from users.models import Client
 
 
 def profil(request):
-    if Client.objects.filter(nickname=request.user.username).first():
-        return render(request, 'users/profil.html')
-    else:
-        Client(user=request.user, nickname=request.user.username).save()
-        return render(request, 'users/profil.html')
+    return render(request, 'users/profil.html')
 
 def list_profil(request):
     client = User.objects.all()
@@ -122,9 +118,45 @@ def edit_profile(request,user_id):
         client.pesel = request.POST['pesel']
         client.avatar = request.POST['avatar']
         client.save()
-        return render(request,'users/profil.html')
+        return render(request,'users/profil.html',{'user':user})
 
     else:
         user = User.objects.all().get(id=user_id)
 
         return render(request,'users/edit_user.html',{'user':user})
+
+def password_chnge(request):
+    if request.method == 'POST':
+        activ_pass = request.POST['activ_pass']
+        if request.user.check_password(activ_pass):
+            pass1 = request.POST['pass1']
+            pass2 = request.POST['pass2']
+            if pass1 == pass2:
+                request.user.set_password(pass1)
+                info = 'Hasło zmieione.'
+                return render(request, 'users/profil.html', {'info': info})
+            else:
+                info = "Hasła nie są zgodne."
+                return render(request, 'users/edit_password.html', {'info': info})
+        else:
+            info = "Hasło nie prawidłowe"
+            return render(request, 'users/edit_password.html', {'info': info})
+    else:
+        return render(request, 'users/edit_password.html')
+
+def create_password(request):
+
+    if request.method == 'POST':
+        pass1 = request.POST['pass1']
+        pass2 = request.POST['pass2']
+        if pass1 == pass2:
+            request.user.set_password(pass1)
+            info = 'Hasło utworzone.'
+            client = Client(user=request.user, nickname=request.user.username)
+            client.save()
+            return render(request, 'users/profil.html', {'info': info})
+        else:
+            info = "Hasła nie są zgodne."
+            return render(request, 'users/create_password.html', {'info': info})
+    else:
+        return render(request, 'users/create_password.html')
