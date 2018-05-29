@@ -31,7 +31,9 @@
         <br>
         <input class="btn btn-outline-secondary" value="Zaloguj" type="submit">
         <a class="btn btn-danger float-right" href="{% url "social:begin" "google-oauth2" %}">Log in Google</a>
-
+    {% if info %}
+<span class="btn bg-danger text-white float-right">{{ info }}</span>
+    {% endif %}
     </div></form>
 
 

@@ -49,7 +49,9 @@
             {{ form.captcha }}
 </div>
         <input class="btn btn-outline-secondary" value="Zarejestruj" type="submit">
-        <span class="btn bg-danger text-white float-right">{{ info }}</span>
+    {% if info %}
+<span class="btn bg-danger text-white float-right">{{ info }}</span>
+    {% endif %}
     </form>
 
 {% endif %}

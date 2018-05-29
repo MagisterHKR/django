@@ -121,7 +121,7 @@ def edit_profile(request,user_id):
         return render(request,'users/profil.html',{'user':user})
 
     else:
-        user = User.objects.all().get(id=user_id)
+        user = User.objects.get(id=user_id)
 
         return render(request,'users/edit_user.html',{'user':user})
 
@@ -132,7 +132,9 @@ def password_chnge(request):
             pass1 = request.POST['pass1']
             pass2 = request.POST['pass2']
             if pass1 == pass2:
-                request.user.set_password(pass1)
+                user = User.objects.get(username=request.user.username)
+                user.set_password(pass1)
+                user.save()
                 info = 'Hasło zmieione.'
                 return render(request, 'users/profil.html', {'info': info})
             else:

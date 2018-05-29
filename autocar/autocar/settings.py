@@ -31,7 +31,7 @@ LOGIN_URL = 'login'
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.0.161','django.pl']
 
 
 # Application definition
@@ -166,7 +166,7 @@ USE_I18N = True
 
 USE_L10N = False
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -185,3 +185,5 @@ SOCIAL_AUTH_LOGIN_REDIRECT_URL = 'create'
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '54832561981-tp5u41d038umgci618jurkkdku9entdh.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'fPFb3nFjsSRInCicOB4JFkYY'
+
+

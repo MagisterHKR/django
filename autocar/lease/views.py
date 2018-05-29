@@ -47,6 +47,8 @@ def CreateRaport(request,car_id):
 
     user = request.user.client
     car = Car.objects.get(id=car_id)
+    car.reservation=True
+    car.save()
     raport = Raport(client=user,car=car,status='W trakcie realizacji')
     raport.save()
 
@@ -71,7 +73,9 @@ def RaportAccept(request,raport_id):
     raport.status='Gotowy do odbioru'
     raport.worker_accept=request.user.username
     raport.save()
-
+    car = Car.objects.get(id=raport.car.id)
+    car.reservation=False
+    car.save()
 
     logi = Logi(user=request.user, action="Zatwierdzenie wypożyczenia auta",raport=raport.id,car=raport.car.id)
     logi.save()
@@ -97,7 +101,9 @@ def CarReject(request,raport_id):
     raport.active = False
     raport.worker_accept=request.user.username
     raport.save()
-
+    car = Car.objects.get(id=raport.car.id)
+    car.reservation = False
+    car.save()
     logi = Logi(user=request.user, action="Odrzucenie wniosku",raport=raport.id,car=raport.car.id)
     logi.save()
     return render(request, 'lease/accept.html',{"status": raport.status})
