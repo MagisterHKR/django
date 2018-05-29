@@ -1,7 +1,7 @@
 import json
 import urllib
 
-
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.conf import settings
 
@@ -56,7 +56,7 @@ def registration(request):
                     client = Client(user=user,nickname=username)
                     client.save()
                     user.save()
-                    return HttpResponseRedirect('succes')
+                    return HttpResponseRedirect('profil')
                 else:
                     info = 'Hasła się różnią'
                     return render(request, 'users/register.html',{'form': form,"info": info})

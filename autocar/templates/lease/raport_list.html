@@ -12,7 +12,9 @@
       <th>Samochód:</th>
       <th>Data:</th>
       <th>Status:</th>
+        {% if request.user.client.group == "Pracownik"  or request.user.client.group == "Admin" %}
       <th>Opcje:</th>
+        {% endif %}
     </tr>
   </thead>
   <tbody>

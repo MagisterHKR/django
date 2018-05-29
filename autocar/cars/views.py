@@ -20,20 +20,6 @@ from django.urls import reverse
 #Detalis car
 
 
-# Widok dodania nowego auta
-#Views add car
-def add_car(request):
-
-    if request.method == "POST":
-        form = AddCar(request.POST)
-        if form.is_valid():
-
-            form.save()
-            return HttpResponse("Dodano Samochód")
-    else:
-        form = AddCar()
-    return render(request, 'cars/add.html', {'form': form})
-
 
 
 #generyczne
@@ -62,15 +48,14 @@ class CarListView(ListView):
 
 
 
+
+
 class CarDetailView(DetailView):
     template_name = 'cars/car_detail.html'
     pk_url_kwarg = "car_id"
     def get_queryset(self):
         return Car.objects.filter()
 
-def report(request,car_id):
-    car = Car.objects.get(id=car_id)
-    user = request.user
 
 
 

@@ -1,5 +1,5 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-from django.shortcuts import get_object_or_404, render, render_to_response
+from django.shortcuts import get_object_or_404, render, render_to_response,redirect
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.forms import modelformset_factory
@@ -9,9 +9,6 @@ from cars.models import Car
 from users.models import Client
 from .models import Lease,Raport
 from logi.models import Logi
-
-
-# Create your views here.
 
 
 
