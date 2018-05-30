@@ -1,12 +1,5 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-<<<<<<< HEAD
 from django.shortcuts import render, render_to_response
-=======
-from django.shortcuts import get_object_or_404, render, render_to_response,redirect
-from django.http import HttpResponseRedirect, HttpResponse
-from django.urls import reverse
-from django.forms import modelformset_factory
->>>>>>> 7760546998b33c19420eee8164288752cfa3a93d
 from django.views.generic import ListView,CreateView
 from cars.models import Car
 from users.models import Client
@@ -14,11 +7,7 @@ from .models import Raport
 from logi.models import Logi
 
 
-<<<<<<< HEAD
 #View all reports
-=======
-
->>>>>>> 7760546998b33c19420eee8164288752cfa3a93d
 class RaportsListView(ListView):
     template_name = 'lease/raport_list.html'
     model = Raport

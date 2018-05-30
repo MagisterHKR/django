@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-=======
-import json
-import urllib
-
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
-from django.conf import settings
-
->>>>>>> 7760546998b33c19420eee8164288752cfa3a93d
 from django.shortcuts import render,render_to_response
 from django.http import HttpResponseRedirect
 from django.contrib import auth

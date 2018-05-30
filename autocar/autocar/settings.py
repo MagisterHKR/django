@@ -31,11 +31,7 @@ LOGIN_URL = 'login'
 
 DEBUG = True
 
-<<<<<<< HEAD
 ALLOWED_HOSTS = ['django.pl','192.168.0.161']
-=======
-ALLOWED_HOSTS = []
->>>>>>> 7760546998b33c19420eee8164288752cfa3a93d
 
 
 # Application definition

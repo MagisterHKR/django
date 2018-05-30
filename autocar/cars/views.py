@@ -6,12 +6,9 @@ from django.views.generic import ListView,DetailView,CreateView,UpdateView
 
 from .models import Car
 
-<<<<<<< HEAD
 
 
 
-=======
->>>>>>> 7760546998b33c19420eee8164288752cfa3a93d
 
 
 #Car list view
@@ -41,21 +38,13 @@ class CarListView(ListView):
 
 
 
-<<<<<<< HEAD
 #Detail view of a given car
-=======
-
->>>>>>> 7760546998b33c19420eee8164288752cfa3a93d
 class CarDetailView(DetailView):
     template_name = 'cars/car_detail.html'
     pk_url_kwarg = "car_id"
     def get_queryset(self):
         return Car.objects.filter()
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 7760546998b33c19420eee8164288752cfa3a93d
 
 
 #View of creating a new car
