@@ -31,6 +31,7 @@
   <div class="card-body">
     <a href="{% url 'car_list' %}" class="btn btn-outline-info">Główna</a>
   {% if car.checked == False %}
+<<<<<<< HEAD
 
       {% if car.reservation %}
                   <div class="btn bg-warning float-right">Rezerwacja</div>
@@ -39,6 +40,14 @@
     <input type="button" class="btn btn-primary" data-toggle="modal" data-target="#potwierdzenie" value="Wypożycz">
                  {% endif %}
       {% endif %}
+=======
+      {% if request.user.is_authenticated %}
+    <input type="button" class="btn btn-primary" data-toggle="modal" data-target="#potwierdzenie" value="Wypożycz">
+                 {% endif %}
+      {% if car.reservation %}
+                  <div class="btn bg-warning float-right">Rezerwacja</div>
+          {% endif %}
+>>>>>>> 7760546998b33c19420eee8164288752cfa3a93d
 
   {% else %}
                   <div class="btn bg-danger float-right">Wypożyczony</div>
