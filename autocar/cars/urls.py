@@ -1,16 +1,17 @@
 from django.urls import path
 
-from .models import Car
+
 from . import views
-from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
-    # ex: /car/
+    # ex: /
     path('', views.CarListView.as_view(), name='car_list'),
-    # ex /car/2
+    # ex: /2
     path('<int:car_id>/', views.CarDetailView.as_view(), name='car_detail'),
-    # ex /car/add
+    # ex: /create
     path('create/',login_required(views.CarCreateView.as_view()), name='car_create'),
+    # ex: 2/update
     path('<int:car_id>/<slug:slug>', login_required(views.CarUpdateView.as_view()), name='car_update'),
 
 

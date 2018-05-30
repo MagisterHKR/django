@@ -1,7 +1,7 @@
 
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
-from django.views.generic import ListView,DetailView,CreateView,UpdateView,DeleteView
+from django.views.generic import ListView,DetailView,CreateView,UpdateView
 
 
 from .models import Car
