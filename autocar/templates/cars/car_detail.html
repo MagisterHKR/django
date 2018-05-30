@@ -31,13 +31,15 @@
   <div class="card-body">
     <a href="{% url 'car_list' %}" class="btn btn-outline-info">Główna</a>
   {% if car.checked == False %}
-      {% if request.user.is_authenticated %}
-             {% if car.reservation %}
+
+      {% if car.reservation %}
                   <div class="btn bg-warning float-right">Rezerwacja</div>
-                    {% else %}
+      {% else %}
+          {% if request.user.is_authenticated %}
     <input type="button" class="btn btn-primary" data-toggle="modal" data-target="#potwierdzenie" value="Wypożycz">
                  {% endif %}
-          {% endif %}
+      {% endif %}
+
   {% else %}
                   <div class="btn bg-danger float-right">Wypożyczony</div>
 

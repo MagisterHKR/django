@@ -1,0 +1,68 @@
+7.05
+Szkolenie BHP.
+Przygotowanie stanowiska pracy.
+Instalacja i konfiguracja systemu Linux.
+8.05
+Nauka podstawowych pojêæ z sieci komputerowej.
+Rozpoczêcie prac nad Aplikacj¹ wypo¿yczalni pojazdów.
+Testowanie karty graficznej w celu zdiagnozowania wydajnoœci.
+9.05
+Instalacja i konfiguracja oprogramowania na komputerze.
+Tworzenie kopii zapasowych.
+Tworzenie modeli,relacji,templatek oraz widoków aplikacji.
+10.05
+Wymiana podzespo³ów jednostki centralnej.
+Nauka technologi Bootstrap 4 oraz poznanie modelu MVC.
+Diagnostyka uszkodzonej jednostki centralnej.
+11.05
+Przeprowadzenie testów tworzonej aplikacji.
+Eliminacja b³êdów aplikacji.
+Instalacja systemu operacyjnego Windows, przeprowadzenie aktualizacji sterowników oraz zainstalowanie wymaganego oprogramowania.
+14.05
+Inwentaryzacja sprzêtów komputerowych w poszczególnych oddzia³ach na terenie zak³adu.
+Przepisanie aplikacji na nowo, wdra¿aj¹c wzorce projektowe.
+Tworzenie formularzy obs³uguj¹ce dodawanie danego pojazdu oraz u¿ytkownika.
+15.05
+Konwertowanie partycji MBR na GPT.
+Diagnostyka jednostki centralnej, demonta¿ i wymiana karty graficznej oraz procesora.
+Poprawienie widoków i templatek projktu.
+16.05
+Diagnostyka i naprawa komputera stacjonarnego, wymiana uk³adu ch³odzenia i na³o¿enie pasty termoprzewodz¹cej.
+Tworzenie formularza logowania u¿ytkownika.
+Inwentaryzacja sprzêtu IT na terenie zak³adu
+17.05
+Porz¹dki na urzêdowanym stanowisku
+Zaszywanie szafy sterowniczej.
+Dodanie wiêkszej funkcjonalnoœci do Aplikacji mobilnej.
+18.05
+Stworzenie Raportów oraz kontrolerów Aplikacji.
+Poprawienie istniej¹cych widoków i dodanie nowych.
+Zastosowanie w projekcie widoków generycznych.
+21.05
+Rozmowa na temat narzêdzi do tworzenia API
+Rozmowa na temat recaptchy oraz tokenu autoryzacyjnego
+Zaszywanie szafy sterowniczej.
+22.05
+Zaszywanie szafy sterowniczej.
+Wymiana matrycy oraz klawiatury w laptopie.
+Dodanie paginacji i poprawienie wygl¹du w Aplikacji mobilnej
+23.05
+Tworzenie kopii zapasowej systemu operacyjnego.
+Stworzenie formularza rejestracji z captch¹.
+Poprawienie estetyki aplikacji webowej.
+24.05
+Blokowanie urz¹dzeñ peryferyjnych na tablecie
+Testowanie oprogramowania Velo
+Usprawnienie serwisu, dodanie edycji profilu uzytkownika.
+25.05
+Diagnostyka i naprawa komputerów, instalacja systemu Windows i aktualizacja sterowników.
+Porz¹dkowanie sprzêtu biurowego.
+Zarabianie kabli do maszyny steruj¹cej.
+28.05
+Instalacja systemu Windows i aktualizacja sterowników.
+Tworzenie kopi przywracania.
+Wprowadzenie logowania po przez Google do aplikacji webowej.
+29.05
+Stworzenie wirtualnego œrodowiska dla projektu webowego.
+Rozpoczêcie wprowadania koniecnych zabezpieczeñ w projekcie.
+Test sprawdzaj¹cy zdobyt¹ wiêdze przez okres praktyk na temat frameworka Django oraz wzorców projektowych.

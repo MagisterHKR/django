@@ -1,12 +1,9 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.views.generic import ListView
 
-from django.shortcuts import render
-
-# Create your views here.
 from .models import Logi
 
-
+#View of all logs
 class LogsListView(ListView):
     template_name = 'logi/logi.html'
     model = Logi

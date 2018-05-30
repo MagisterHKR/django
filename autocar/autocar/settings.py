@@ -31,7 +31,7 @@ LOGIN_URL = 'login'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.0.161','django.pl']
+ALLOWED_HOSTS = ['django.pl','192.168.0.161']
 
 
 # Application definition

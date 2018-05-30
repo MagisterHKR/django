@@ -1,20 +1,13 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-from django.shortcuts import get_object_or_404, render, render_to_response
-from django.http import HttpResponseRedirect, HttpResponse
-from django.urls import reverse
-from django.forms import modelformset_factory
+from django.shortcuts import render, render_to_response
 from django.views.generic import ListView,CreateView
-
 from cars.models import Car
 from users.models import Client
-from .models import Lease,Raport
+from .models import Raport
 from logi.models import Logi
 
 
-# Create your views here.
-
-
-
+#View all reports
 class RaportsListView(ListView):
     template_name = 'lease/raport_list.html'
     model = Raport
@@ -38,11 +31,8 @@ class RaportsListView(ListView):
         context['raport_list'] = file_exams
         return context
 
-class RaportCreateView(CreateView):
-    model = Raport
-    fields = '__all__'
 
-
+#Creating a new report when renting a car
 def CreateRaport(request,car_id):
 
     user = request.user.client
@@ -55,11 +45,11 @@ def CreateRaport(request,car_id):
     logi = Logi(user=request.user, action="Wypożyczenie auta",raport=raport.id,car=raport.car.id)
     logi.save()
     return render(request,'lease/success.html',{'data':raport.data})
-
+#Information after placing the rental
 def success(request):
 
     return render_to_response('lease/success.html')
-
+#Details of the 'id' report
 def RaportDetail(request,raport_id):
 
     raport = Raport.objects.get(id=raport_id)
@@ -67,7 +57,7 @@ def RaportDetail(request,raport_id):
     car = Car.objects.get(id=raport.car.id)
 
     return render(request,'lease/raport_detail.html',{'raport':raport,'car':car,'user':user})
-
+#Accepting a loan
 def RaportAccept(request,raport_id):
     raport = Raport.objects.get(id=raport_id)
     raport.status='Gotowy do odbioru'
@@ -81,7 +71,7 @@ def RaportAccept(request,raport_id):
     logi.save()
 
     return render(request, 'lease/accept.html', {"status": raport.status})
-
+#Car rental
 def CarAcctept(request,raport_id):
     raport = Raport.objects.get(id=raport_id)
     raport.status = 'Wydany'
@@ -95,6 +85,7 @@ def CarAcctept(request,raport_id):
 
     return render(request, 'lease/accept.html',{"status": raport.status})
 
+#Rejection of the car rental application
 def CarReject(request,raport_id):
     raport = Raport.objects.get(id=raport_id)
     raport.status = 'Odrzucony'
@@ -108,8 +99,8 @@ def CarReject(request,raport_id):
     logi.save()
     return render(request, 'lease/accept.html',{"status": raport.status})
 
+#Picking up the car from the customer
 def CarDone(request,raport_id):
-
     raport = Raport.objects.get(id=raport_id)
     raport.status = 'Odebrany'
     raport.worker_reject=request.user.username
@@ -123,7 +114,7 @@ def CarDone(request,raport_id):
     logi.save()
 
     return render(request, 'lease/accept.html',{"status": raport.status})
-
+#Delete the report
 def ReportDelete(request,raport_id):
     raport = Raport.objects.get(id=raport_id)
     raport.deleted = True

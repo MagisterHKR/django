@@ -1,10 +1,3 @@
-import json
-import urllib
-
-
-from django.shortcuts import render, redirect
-from django.conf import settings
-
 from django.shortcuts import render,render_to_response
 from django.http import HttpResponseRedirect
 from django.contrib import auth
@@ -15,18 +8,18 @@ from django.contrib.auth.models import User
 from forms.forms import user_register, FormWithCaptcha
 from users.models import Client
 
-
+#User profile view
 def profil(request):
     return render(request, 'users/profil.html')
-
+#View all users
 def list_profil(request):
     client = User.objects.all()
     return render(request, 'users/list_profile.html',{'user_list': client})
 
-
+#View after correct registration
 def reg_succ(request):
     return render(request, 'users/register_success.html')
-
+#Registration support
 def registration(request):
     form = user_register()
 
@@ -56,7 +49,7 @@ def registration(request):
                     client = Client(user=user,nickname=username)
                     client.save()
                     user.save()
-                    return HttpResponseRedirect('succes')
+                    return HttpResponseRedirect('profil')
                 else:
                     info = 'Hasła się różnią'
                     return render(request, 'users/register.html',{'form': form,"info": info})
@@ -72,7 +65,7 @@ def registration(request):
         return render(request, 'users/register.html', {'form': form,})
 
 
-
+#Login support
 def login(request):
 
     if request.method == 'POST':
@@ -81,7 +74,7 @@ def login(request):
         user = auth.authenticate(username=username,password=password)
         if user is not None:
             auth.login(request,user)
-            return HttpResponseRedirect('/profil/logged/')
+            return HttpResponseRedirect('/profil/')
         else:
             info = 'Błędne dane logowania'
             return render(request, 'users/login.html',{"info":info})
@@ -89,20 +82,17 @@ def login(request):
         return render(request, 'users/login.html')
 
 
-
+#User logout
 def logout(request):
     auth.logout(request)
     return render_to_response('users/logout.html')
 
-def logged(request):
 
-    return render(request, 'users/logged.html')
-
-
+#User profile view with 'id' specified
 def profil_id(request,user_id):
     user = User.objects.get(id=user_id)
     return render(request, 'users/profil.html',{'user':user})
-
+# Editing a user with 'id' specified
 def edit_profile(request,user_id):
 
     if request.method == 'POST':
@@ -124,7 +114,7 @@ def edit_profile(request,user_id):
         user = User.objects.get(id=user_id)
 
         return render(request,'users/edit_user.html',{'user':user})
-
+#Password change
 def password_chnge(request):
     if request.method == 'POST':
         activ_pass = request.POST['activ_pass']
@@ -146,6 +136,7 @@ def password_chnge(request):
     else:
         return render(request, 'users/edit_password.html')
 
+#Creating a password after logging in by Google
 def create_password(request):
     if request.user.password is not None:
         info = 'Zalogowano za pomocą Google.'
